@@ -1,7 +1,7 @@
 // Action types
 
-export const reviewTypes = {
+export const reviewTypes = Object.freeze({
     GET_REVIEW_BY_ID_REQUEST: 'GET_REVIEW_BY_ID_REQUEST',
     GET_REVIEW_BY_ID_SUCCESS: 'GET_REVIEW_BY_ID_SUCCESS',
     GET_REVIEW_BY_ID_FAILURE: 'GET_REVIEW_BY_ID_FAILURE'
-};
+});
