@@ -1,3 +1,8 @@
+const GET = "GET";
+const PUT = "PUT";
+const POST = "POST";
+const DELETE = "DELETE";
+
 // TODO: implement
 function getHeaders() {
     return {
@@ -6,7 +11,12 @@ function getHeaders() {
 }
 
 
-// Wrapper for fetch
+/* Wrapper for fetch. Three parameters:
+baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+queryParams (optional): object where each key is the key and each value is the value for the query string (go figure). Set to null if you're not using query params but are using an id.
+id (optional): int that will get concatenated onto the baseUrl as a path param.
+Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
+*/
 function Get(baseUrl, queryParams, id) {
     let url = baseUrl;
     // Append id if we have one
@@ -20,7 +30,7 @@ function Get(baseUrl, queryParams, id) {
         url += mapObjectToQueryParamString(queryParams);
     }
     const options = {
-        method: 'GET',
+        method: GET,
         headers: getHeaders()
     }
 
@@ -32,13 +42,22 @@ function Get(baseUrl, queryParams, id) {
             return response.json();
         }
         // Else, 
-        return Promise.reject(response);
+        return Promise.reject({ response, status: response.status });
+    })
+    .then(json => {
+        return { json, error: null}
     })
     .catch(error => {
         // Two cases: error code or failed unmarshalling
-        // TODO: proper error handling
-        console.log(error)
-        return Promise.reject(error);
+        // Error code
+        console.log(error);
+        if (error.status) {
+            return { json: error.response.json(), error }; // 
+        }
+        // Failed unmarshalling
+        else {
+            return { json: null, error };
+        }
     })
 }
 
@@ -47,16 +66,18 @@ function Put(baseUrl, body, id) {
     // Append id if we have one
     url = concatId(url, id);
     const options = {
-        method: 'PUT',
-        headers: getHeaders(),
-        body
+        method: PUT,
+        headers: getHeaders()
+    };
+    if (body) {
+        options.body = JSON.stringify(body);
     }
     return fetch(url, options)
     .then(response => {
         if (response.ok) {
             return response.json();
         }
-        return Promise.reject(response)
+        return Promise.reject(response);
     })
     .catch(error => {
         // Two cases: error code or failed unmarshalling
@@ -69,11 +90,17 @@ function Put(baseUrl, body, id) {
 function Post(baseUrl, body, id) {
     let url = baseUrl;
     url = concatId(url, id);
-    const options = {
-        method: 'POST',
-        headers: getHeaders(),
-        body
+    if (body) {
+
     }
+    const options = {
+        method: POST,
+        headers: getHeaders()
+    }
+    if (body) {
+        options.body = JSON.stringify(body);
+    }
+  
     return fetch(url, options)
     .then(response => {
         if (response.ok) {
@@ -93,9 +120,11 @@ function Delete(baseUrl, body, id) {
     let url = baseUrl;
     url = concatId(url, id);
     const options = {
-        method: 'DELETE',
-        headers: getHeaders(),
-        body
+        method: DELETE,
+        headers: getHeaders()
+    }
+    if (body) {
+        options.body = JSON.stringify(body);
     }
     return fetch(url, options)
     .then(response => {
