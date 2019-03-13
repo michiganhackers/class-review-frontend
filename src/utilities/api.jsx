@@ -10,8 +10,42 @@ function getHeaders() {
     }
 }
 
+// Helper function, wraps around fetch
+function fetcher(url, options) {
+    // Make the request
+    return fetch(url, options)
+        .then(response => {
+            // If the request was good, then attempt to unmarshal
+            if (response.ok) {
+                return response.json();
+            }
+            // Else, 
+            return Promise.reject({ response, stat: response.status });
+        })
+        .then(json => {
+            // Response was good and we successfully unmarshalled
+            return { json, error: null };
+        })
+        .catch(error => {
+            // Two cases: error code or failed unmarshalling
+            // Error code
+            console.log(error);
+            if (error.stat) {
+                return { json: error.response.json(), error }; // Attempt to grab message from body of error
+            }
+            // Failed unmarshalling
+            else {
+                return { json: null, error };
+            }
+        })
+        .catch(error => {
+            // Only way to get here would be to fail to unmarshal error message to json
+            return { json: null, error };
+        });
+}
 
-/* Wrapper for fetch. Three parameters:
+
+/* Perform a get request. Three parameters:
 baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
 queryParams (optional): object where each key is the key and each value is the value for the query string (go figure). Set to null if you're not using query params but are using an id.
 id (optional): int that will get concatenated onto the baseUrl as a path param.
@@ -32,35 +66,18 @@ function Get(baseUrl, queryParams, id) {
     const options = {
         method: GET,
         headers: getHeaders()
-    }
+    };
 
     // Make the request
-    return fetch(url, options)
-    .then(response => {
-        // If the request was good, then attempt to unmarshal
-        if (response.ok) {
-            return response.json();
-        }
-        // Else, 
-        return Promise.reject({ response, status: response.status });
-    })
-    .then(json => {
-        return { json, error: null}
-    })
-    .catch(error => {
-        // Two cases: error code or failed unmarshalling
-        // Error code
-        console.log(error);
-        if (error.status) {
-            return { json: error.response.json(), error }; // 
-        }
-        // Failed unmarshalling
-        else {
-            return { json: null, error };
-        }
-    })
+    return fetcher(url, options);
 }
 
+/* Perform a put request. Three parameters:
+baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+body (optional): object that represents the body of the put request
+id (optional): int that will get concatenated onto the baseUrl as a path param.
+Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
+*/
 function Put(baseUrl, body, id) {
     let url = baseUrl;
     // Append id if we have one
@@ -72,21 +89,15 @@ function Put(baseUrl, body, id) {
     if (body) {
         options.body = JSON.stringify(body);
     }
-    return fetch(url, options)
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(response);
-    })
-    .catch(error => {
-        // Two cases: error code or failed unmarshalling
-        // TODO: proper error handling
-        console.log(error)
-        return Promise.reject(error);
-    })
+    return fetcher(url, options);
 }
 
+/* Perform a post request. Three parameters:
+baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+body (optional): object that represents the body of the post request
+id (optional): int that will get concatenated onto the baseUrl as a path param.
+Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
+*/
 function Post(baseUrl, body, id) {
     let url = baseUrl;
     url = concatId(url, id);
@@ -101,21 +112,15 @@ function Post(baseUrl, body, id) {
         options.body = JSON.stringify(body);
     }
   
-    return fetch(url, options)
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(response)
-    })
-    .catch(error => {
-        // Two cases: error code or failed unmarshalling
-        // TODO: proper error handling
-        console.log(error)
-        return Promise.reject(error);
-    })
+    return fetcher(url, options);
 }
 
+/* Perform a delete request. Three parameters:
+baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+body (optional): object that represents the body of the delete request. Set to null if not used but you wish to include an id path param.
+id (optional): int that will get concatenated onto the baseUrl as a path param.
+Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
+*/
 function Delete(baseUrl, body, id) {
     let url = baseUrl;
     url = concatId(url, id);
@@ -126,19 +131,7 @@ function Delete(baseUrl, body, id) {
     if (body) {
         options.body = JSON.stringify(body);
     }
-    return fetch(url, options)
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(response)
-    })
-    .catch(error => {
-        // Two cases: error code or failed unmarshalling
-        // TODO: proper error handling
-        console.log(error)
-        return Promise.reject(error);
-    })
+    return fetcher(url, options);
 }
 
 // Concatenates an id as a path parameter if and only if it is provided and is an integer.
