@@ -100,10 +100,8 @@ Returns an object of the form: {json, error} where json is the unmarshalled body
 */
 function Post(baseUrl, body, id) {
     let url = baseUrl;
+    // Append id if we have one
     url = concatId(url, id);
-    if (body) {
-
-    }
     const options = {
         method: POST,
         headers: getHeaders()
