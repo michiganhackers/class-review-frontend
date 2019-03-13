@@ -2,7 +2,7 @@
 import { Get } from '../utilities/api';
 import { reviewTypes } from '../constants/action_types';
 import { endpoints } from '../constants/endpoints';
-import { call, put, takeLatest } from 'redux-saga';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { ReviewActions } from '../actions/review_actions'
 
 function* getReviewById(action) {
@@ -17,6 +17,6 @@ function* getReviewById(action) {
     }
 }
 
-function* getReviewByIdFlow() {
+export function* getReviewByIdFlow() {
     yield takeLatest(reviewTypes.GET_REVIEW_BY_ID_REQUEST, getReviewById);
 }

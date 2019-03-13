@@ -1,5 +1,5 @@
 // Action creators for reviews go here
-import reviewTypes from '../constants/action_types.js';
+import { reviewTypes } from '../constants/action_types.js';
 
 // Example below:
 export const ReviewActions = {

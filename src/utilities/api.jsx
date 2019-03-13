@@ -51,7 +51,7 @@ queryParams (optional): object where each key is the key and each value is the v
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-function Get(baseUrl, queryParams, id) {
+export function Get(baseUrl, queryParams, id) {
     let url = baseUrl;
     // Append id if we have one
     url = concatId(url, id);
@@ -78,7 +78,7 @@ body (optional): object that represents the body of the put request
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-function Put(baseUrl, body, id) {
+export function Put(baseUrl, body, id) {
     let url = baseUrl;
     // Append id if we have one
     url = concatId(url, id);
@@ -98,7 +98,7 @@ body (optional): object that represents the body of the post request
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-function Post(baseUrl, body, id) {
+export function Post(baseUrl, body, id) {
     let url = baseUrl;
     // Append id if we have one
     url = concatId(url, id);
@@ -119,7 +119,7 @@ body (optional): object that represents the body of the delete request. Set to n
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-function Delete(baseUrl, body, id) {
+export function Delete(baseUrl, body, id) {
     let url = baseUrl;
     url = concatId(url, id);
     const options = {
