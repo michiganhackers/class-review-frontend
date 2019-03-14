@@ -12,7 +12,7 @@ function getReviewById(state = {}, action) {
             return {
                 ...state,
                 error: null,
-                data: action.data // TODO: perhaps change
+                review: action.review
             }
         
         case reviewTypes.GET_REVIEW_BY_ID_FAILURE: 
