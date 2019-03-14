@@ -11,6 +11,11 @@ class ReviewPage extends React.Component {
         this.props.getReviewById(); // Example, TODO: replace with real call
     }
 
+    render() {
+        return (
+            <span>Placeholder</span>
+        )
+    }
 }
 
 const mapStateToProps = state => ({
