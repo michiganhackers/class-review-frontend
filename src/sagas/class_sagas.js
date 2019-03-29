@@ -2,10 +2,16 @@
 import { Get } from '../utilities/api';
 import { classTypes } from '../constants/action_types';
 import { endpoints } from '../constants/endpoints';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, actionChannel } from 'redux-saga/effects';
 import { ClassActions } from '../actions/class_actions'
 
 function* getClassById(action) {
+    // const { json, error } = { json: { 
+    //                                     reviews: [{ name: "test1" }, {name: "test2"}],
+    //                                     name: "TEST 420",
+    //                                     id: action.id
+    //                                 }, error: null}
+                                
     const { json, error } = yield call(Get, endpoints.GET_CLASS_BY_ID, null, action.id); // Object destructuring
     if (error) {
         // Dispatch redux action
