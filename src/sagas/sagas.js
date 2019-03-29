@@ -8,8 +8,6 @@ import {
 
 // Sagas
 export default function* rootSaga() {
-    yield [
-        fork(getReviewByIdFlow),
-        fork(getClassByIdFlow)
-    ]
+    yield fork(getReviewByIdFlow);
+    yield fork(getClassByIdFlow);
 }
