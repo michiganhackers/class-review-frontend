@@ -15,6 +15,7 @@ function* getReviewById(action) {
         // Dispatch redux action
         yield put(ReviewActions.getReviewByIdSuccess(json)); // TODO: see above
     }
+    
 }
 
 export function* getReviewByIdFlow() {

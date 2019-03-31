@@ -2,6 +2,9 @@ const GET = "GET";
 const PUT = "PUT";
 const POST = "POST";
 const DELETE = "DELETE";
+const NOT_JSON_AND_OK = "NOT_JSON_AND_OK";
+const NOT_JSON_AND_NOT_OK = "NOT_JSON_AND_NOT_OK";
+const JSON_AND_NOT_OK = "JSON_AND_NOT_OK";
 
 // TODO: implement
 function getHeaders() {
@@ -14,43 +17,45 @@ function getHeaders() {
 // Helper function, wraps around fetch
 function fetcher(url, options) {
     // Make the request
+    let goodJSON = true;
     return fetch(url, options)
         .then(response => {
+            const contentType = response.headers.get("content-type");
             // If the request was good, then attempt to unmarshal
             if (response.ok) {
-                return response.json();
+                if (contentType && contentType.includes("application/json")) {
+                    return response.json();
+                }
+                else {
+                    return Promise.reject({ response, stat: response.status, reason: NOT_JSON_AND_OK });
+                }
             }
-            // Else, 
-            return Promise.reject({ response, stat: response.status });
+            else {
+                if (contentType && contentType.includes("application/json")) {
+                    goodJSON = false;
+                    return response.json();
+                }
+                else {
+                    return Promise.reject({ response, stat: response.status, reason: NOT_JSON_AND_NOT_OK});
+                }
+            }
         })
         .then(json => {
             // Response was good and we successfully unmarshalled
-            return { json, error: null };
+            if (goodJSON) return { json, error: null };
+            return Promise.reject({ json, reason: JSON_AND_NOT_OK });
         })
         .catch(error => {
-            // Two cases: error code or failed unmarshalling
-            // Error code
-            console.log(error);
-            if (error.stat) {
-                switch(error.stat){
-                    case 404:
-                        return { json: null, error};
-                    default: 
-                        // Attempt to grab message from body of error
-                        return { json: error.response.json(), error };
-                }
+            switch (error.reason) {
+                case NOT_JSON_AND_OK:
+                    return { json: null, error };
+                case NOT_JSON_AND_NOT_OK:
+                    return { json: null, error };
+                case JSON_AND_NOT_OK:
+                    return { json: error.json, error };
+                default: 
+                    return { json: null, error };
             }
-            // Failed unmarshalling
-            else {
-                return Promise.reject({ json: null, error });
-            }            
-        })
-        .catch(error => {
-            // Only way to get here would be to fail to unmarshal error message to json
-            return { json: null, error };
-        })
-        .catch(error => {
-            console.log("what");
         });
 }
 
