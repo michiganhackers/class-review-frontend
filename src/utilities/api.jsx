@@ -6,7 +6,8 @@ const DELETE = "DELETE";
 // TODO: implement
 function getHeaders() {
     return {
-
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
     }
 }
 
@@ -31,16 +32,25 @@ function fetcher(url, options) {
             // Error code
             console.log(error);
             if (error.stat) {
-                return { json: error.response.json(), error }; // Attempt to grab message from body of error
+                switch(error.stat){
+                    case 404:
+                        return { json: null, error};
+                    default: 
+                        // Attempt to grab message from body of error
+                        return { json: error.response.json(), error };
+                }
             }
             // Failed unmarshalling
             else {
-                return { json: null, error };
-            }
+                return Promise.reject({ json: null, error });
+            }            
         })
         .catch(error => {
             // Only way to get here would be to fail to unmarshal error message to json
             return { json: null, error };
+        })
+        .catch(error => {
+            console.log("what");
         });
 }
 
