@@ -9,7 +9,7 @@ const JSON_AND_NOT_OK = "JSON_AND_NOT_OK";
 // TODO: implement
 function getHeaders() {
     return {
-
+        
     }
 }
 
