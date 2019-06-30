@@ -13,7 +13,8 @@ export const courseTypes = Object.freeze({
 });
 
 export const loginTypes = Object.freeze({
-    SET_LOGIN_TOKENS: 'SET_LOGIN_TOKENS',
+    SET_LOGIN_TOKENS_REQUEST: 'SET_LOGIN_TOKENS_REQUEST',
+    SET_LOGIN_TOKENS_FAILURE: 'GET_LOGIN_TOKENS_FAILURE',
     SET_PROFILE_INFO: 'SET_PROFILE_INFO',
     CLEAR_PROFILE_INFO: 'CLEAR_PROFILE_INFO'
 });

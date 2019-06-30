@@ -4,8 +4,15 @@ export const LoginActions = {
 
     setLoginTokens: tokens => {
         return ({
-            type: loginTypes.SET_LOGIN_TOKENS,
+            type: loginTypes.SET_LOGIN_TOKENS_REQUEST,
             tokens
+        })
+    },
+
+    setLoginTokensFailure: error => {
+        return ({
+            type: loginTypes.SET_LOGIN_TOKENS_FAILURE,
+            error
         })
     },
 
