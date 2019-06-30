@@ -18,6 +18,10 @@ class LoginPage extends React.Component {
         
         const urlParams = new URLSearchParams(this.props.location.search);
         const code = urlParams.get('code');
+        if (code === null){
+            console.log("boop");
+            window.location = localStorage.getItem("wolverinerank-current-page");
+        }
         const oauth2Client = new OAuth2Client(
             process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID,
             process.env.REACT_APP_GOOGLE_AUTH_CLIENT_SECRET,
@@ -37,13 +41,9 @@ class LoginPage extends React.Component {
                     domain: this.props.profile.hd,
                 })
             })
-            if (this.state.domain === "umich.edu"){
-                window.location = window.location.origin;
-            } else {
-                window.location = window.location.origin + "/login";
-            }
+            window.location = window.location.origin + "/login";
         }
-        ).catch((err) => console.log(err));
+        ).catch((err) => this.props.setLoginTokensFailure(err));
     }
 
     render() {
@@ -59,6 +59,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
     setLoginTokens: tokens => dispatch(LoginActions.setLoginTokens(tokens)),
+    setLoginTokensFailure: error => dispatch(LoginActions.setLoginTokensFailure(error)),
     setProfileInfo: profile => dispatch(LoginActions.setProfileInfo(profile))
 })
 

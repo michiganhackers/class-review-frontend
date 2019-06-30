@@ -9,13 +9,13 @@ class LoginButton extends React.Component {
         super();
         this.state = {
             loginUrl: "PLACEHOLDER",
-            oauth2Client: null,
             email: "undef",
             domain: "undef"
         };
         this.getLoginUrl = this.getLoginUrl.bind(this);
         this.getProfileInfo = this.getProfileInfo.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
+        this.loginUser = this.loginUser.bind(this);
         this.renderLoginButton = this.renderLoginButton.bind(this);
         this.renderLogoutButton = this.renderLogoutButton.bind(this);
     }
@@ -78,16 +78,13 @@ class LoginButton extends React.Component {
                 this.getLoginUrl(oauth2Client);
             }
         }
-        
-        this.setState({oauth2Client});
 
         this.getProfileInfo(oauth2Client);
     }
 
-    logoutUser() {
-        localStorage.removeItem("wolverinerank-refresh-token");
-        this.props.clearProfileInfo();
-        window.location = window.location.origin;
+    loginUser() {
+        localStorage.setItem("wolverinerank-current-page", window.location);
+        window.location = this.state.loginUrl;
     }
 
     renderLoginButton() {
@@ -108,9 +105,15 @@ class LoginButton extends React.Component {
                 background: url("${process.env.PUBLIC_URL}/login/google_login_pressed.png");
                 background-size: 200px 48px;
             }
-
         `;
-        return (<a href={this.state.loginUrl}><LoginWithGoogle/></a>);
+        return (<LoginWithGoogle onClick={this.loginUser}/>);
+    }
+
+    logoutUser() {
+        localStorage.setItem("wolverinerank-current-page", window.location);
+        localStorage.removeItem("wolverinerank-refresh-token");
+        this.props.clearProfileInfo();
+        window.location = localStorage.getItem("wolverinerank-current-page");
     }
 
     renderLogoutButton() {
@@ -124,7 +127,6 @@ class LoginButton extends React.Component {
             border-radius: 3px;
             border: 1px solid gray;
         `;
-
         return (<span>Logged in as {this.state.email}. <Logout onClick={this.logoutUser}>Logout</Logout></span>);
     }
 
