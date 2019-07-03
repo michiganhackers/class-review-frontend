@@ -3,11 +3,11 @@ import {
     getReviewByIdFlow
 } from './review_sagas.js';
 import {
-    getClassByIdFlow
-} from './class_sagas.js'
+    getCourseByIdFlow
+} from './course_sagas.js'
 
 // Sagas
 export default function* rootSaga() {
     yield fork(getReviewByIdFlow);
-    yield fork(getClassByIdFlow);
+    yield fork(getCourseByIdFlow);
 }
