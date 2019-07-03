@@ -1,11 +1,11 @@
 // Reducers
 import reviewReducers from './review_reducers.js';
-import classReducers from './class_reducers.js';
+import courseReducers from './course_reducers.js';
 import { combineReducers } from 'redux';
 
 const reducer = combineReducers({
     reviewReducers,
-    classReducers
+    courseReducers
 })
 
 export default reducer;

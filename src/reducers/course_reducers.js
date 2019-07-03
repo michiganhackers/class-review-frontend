@@ -1,21 +1,21 @@
 import { combineReducers } from 'redux';
-import { classTypes } from './../constants/action_types';
+import { courseTypes } from '../constants/action_types';
 
-function getClassById(state = {}, action) {
+function getCourseById(state = {}, action) {
     switch (action.type) {
-        case classTypes.GET_CLASS_BY_ID_REQUEST: 
+        case courseTypes.GET_COURSE_BY_ID_REQUEST: 
             return {
                 ...state,
                 error: null
             }
-        case classTypes.GET_CLASS_BY_ID_SUCCESS: 
+        case courseTypes.GET_COURSE_BY_ID_SUCCESS: 
             return {
                 ...state,
                 error: null,
-                classData: action.classData
+                courseData: action.courseData
             }
         
-        case classTypes.GET_CLASS_BY_ID_FAILURE: 
+        case courseTypes.GET_COURSE_BY_ID_FAILURE: 
             return {
                 ...state,
                 error: action.error
@@ -26,8 +26,8 @@ function getClassById(state = {}, action) {
     }
 }
 
-const classReducers = combineReducers({
-    getClassById
+const courseReducers = combineReducers({
+    getCourseById
 })
 
-export default classReducers;
+export default courseReducers;
