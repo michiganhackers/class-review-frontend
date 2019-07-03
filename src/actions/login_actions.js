@@ -4,7 +4,7 @@ export const LoginActions = {
 
     setLoginTokens: tokens => {
         return ({
-            type: loginTypes.SET_LOGIN_TOKENS_REQUEST,
+            type: loginTypes.SET_LOGIN_TOKENS,
             tokens
         })
     },

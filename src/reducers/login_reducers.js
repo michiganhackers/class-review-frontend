@@ -3,7 +3,7 @@ import { loginTypes } from './../constants/action_types';
 
 function setLoginTokens(state = {}, action) {
     switch (action.type) {
-        case loginTypes.SET_LOGIN_TOKENS_REQUEST: 
+        case loginTypes.SET_LOGIN_TOKENS: 
             return {
                 ...state,
                 error: null,

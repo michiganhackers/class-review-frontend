@@ -19,7 +19,6 @@ class LoginPage extends React.Component {
         const urlParams = new URLSearchParams(this.props.location.search);
         const code = urlParams.get('code');
         if (code === null){
-            console.log("boop");
             window.location = localStorage.getItem("wolverinerank-current-page");
         }
         const oauth2Client = new OAuth2Client(
