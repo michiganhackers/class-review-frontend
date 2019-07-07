@@ -1,51 +1,11 @@
 import React, { Component } from 'react';
 import {Bootstrap, Grid, Row, Col, Container, ProgressBar} from 'react-bootstrap';
 
-class RatingBar extends React.Component{
-    render(){
-        return(
-            <div>
-                {this.props.value}
-            </div>
-        );
-    }
-}
-class Date extends React.Component{
-    render(){
-        return(
-            <div>
-                Date: {this.props.value}  
-            </div>
-        );
-    }
-}
-class Semester extends React.Component{
-    render(){
-        return(
-            <div>
-                Semester: {this.props.value}
-            </div>
-        );
-    }
-}
-class Text extends React.Component{
-    render(){
-        return(
-            <div>
-                {this.props.value}
-            </div>
-        );
-    }
-}
-class Professor extends React.Component{
-    render(){
-        return(
-            <div>
-                {this.props.value}      
-            </div>
-        );
-    }
-}
+const Date = props => (<div>Date: {props.value}</div>)
+const Semester = props => (<div>Semester: {props.value}</div>)
+const Text = props => (<div>{props.value}</div>)
+const Professor = props => (<div>{props.value}</div>)
+
 export default class ReviewForm extends React.Component {
     renderRatingsBar(rating){
 		const progressInstance = <ProgressBar now={rating} label={`${rating}%`} />;
@@ -88,6 +48,8 @@ export default class ReviewForm extends React.Component {
 					<Col>Difficulty</Col>
 					<Col>{this.renderRatingsBar(30)}</Col>					
 				</Row>
+                
+                <br></br>
 
                 <Row>
                     <Col>{this.renderRatingsBar(70)}</Col>
@@ -142,3 +104,48 @@ export default class ReviewForm extends React.Component {
     }
 }
 //React bootstrap
+// class RatingBar extends React.Component{
+//     render(){
+//         return(
+//             <div>
+//                 {this.props.value}
+//             </div>
+//         );
+//     }
+// }
+// class Date extends React.Component{
+//     render(){
+//         return(
+//             <div>
+//                 Date: {this.props.value}  
+//             </div>
+//         );
+//     }
+// }
+// class Semester extends React.Component{
+//     render(){
+//         return(
+//             <div>
+//                 Semester: {this.props.value}
+//             </div>
+//         );
+//     }
+// }
+// class Text extends React.Component{
+//     render(){
+//         return(
+//             <div>
+//                 {this.props.value}
+//             </div>
+//         );
+//     }
+// }
+// class Professor extends React.Component{
+//     render(){
+//         return(
+//             <div>
+//                 {this.props.value}      
+//             </div>
+//         );
+//     }
+// }
