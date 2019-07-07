@@ -1,16 +1,59 @@
 import React, { Component } from 'react';
 import {Bootstrap, Grid, Row, Col, Container, ProgressBar} from 'react-bootstrap';
+import StarRatings from 'react-star-ratings';
 
-const Date = props => (<div>Date: {props.value}</div>)
-const Semester = props => (<div>Semester: {props.value}</div>)
-const Text = props => (<div>{props.value}</div>)
-const Professor = props => (<div>{props.value}</div>)
+class StarBar extends React.Component {
+    render() {
+      return (
+        <StarRatings
+          rating={this.props.value}
+          starDimension="40px"
+          starSpacing="2px"
+        />
+      );
+    }
+  }
 
+class Date extends React.Component{
+    render(){
+        return(
+            <div>
+                Date: {this.props.value}  
+            </div>
+        );
+    }
+}
+class Semester extends React.Component{
+    render(){
+        return(
+            <div>
+                Semester: {this.props.value}
+            </div>
+        );
+    }
+}
+class Text extends React.Component{
+    render(){
+        return(
+            <div>
+                {this.props.value}
+            </div>
+        );
+    }
+}
+class Professor extends React.Component{
+    render(){
+        return(
+            <div>
+                {this.props.value}      
+            </div>
+        );
+    }
+}
 export default class ReviewForm extends React.Component {
-    renderRatingsBar(rating){
-		const progressInstance = <ProgressBar now={rating} label={`${rating}%`} />;
-		return progressInstance;
-	}
+    renderStarRatingBar(numStars){
+        return <StarBar value = {numStars}/>
+    }
     renderAnonymous(anonymous){
         var name = "anonymous";
         if (anonymous){
@@ -36,23 +79,21 @@ export default class ReviewForm extends React.Component {
 
 				<Row>
 					<Col>Overall</Col>
-					<Col>{this.renderRatingsBar(70)}</Col>					
+					<Col>{this.renderStarRatingBar(3)}</Col>					
 				</Row>
 
 				<Row>
 					<Col>Interest</Col>
-					<Col>{this.renderRatingsBar(100)}</Col>					
+					<Col>{this.renderStarRatingBar(5)}</Col>					
 				</Row>
 
 				<Row>
 					<Col>Difficulty</Col>
-					<Col>{this.renderRatingsBar(30)}</Col>					
+					<Col>{this.renderStarRatingBar(4)}</Col>					
 				</Row>
-                
-                <br></br>
 
                 <Row>
-                    <Col>{this.renderRatingsBar(70)}</Col>
+                    <Col>{this.renderStarRatingBar(5)}</Col>
                     <Col>2 of 3 (wider)</Col>
                     <Col>3 of 3</Col>
                 </Row>
@@ -104,48 +145,3 @@ export default class ReviewForm extends React.Component {
     }
 }
 //React bootstrap
-// class RatingBar extends React.Component{
-//     render(){
-//         return(
-//             <div>
-//                 {this.props.value}
-//             </div>
-//         );
-//     }
-// }
-// class Date extends React.Component{
-//     render(){
-//         return(
-//             <div>
-//                 Date: {this.props.value}  
-//             </div>
-//         );
-//     }
-// }
-// class Semester extends React.Component{
-//     render(){
-//         return(
-//             <div>
-//                 Semester: {this.props.value}
-//             </div>
-//         );
-//     }
-// }
-// class Text extends React.Component{
-//     render(){
-//         return(
-//             <div>
-//                 {this.props.value}
-//             </div>
-//         );
-//     }
-// }
-// class Professor extends React.Component{
-//     render(){
-//         return(
-//             <div>
-//                 {this.props.value}      
-//             </div>
-//         );
-//     }
-// }
