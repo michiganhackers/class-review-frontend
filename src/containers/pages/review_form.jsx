@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import {Bootstrap, Grid, Row, Col, Container, ProgressBar} from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
 
+// const StarBar = props => (<StarRatings rating={this.props.value}>)
+const Date = props => (<div>{props.value}</div>)
+const Semester = props => (<div>Semester: {props.value}</div>)
+
 class StarBar extends React.Component {
     render() {
       return (
@@ -13,25 +17,15 @@ class StarBar extends React.Component {
       );
     }
   }
-
-class Date extends React.Component{
-    render(){
-        return(
-            <div>
-                Date: {this.props.value}  
-            </div>
-        );
-    }
-}
-class Semester extends React.Component{
-    render(){
-        return(
-            <div>
-                Semester: {this.props.value}
-            </div>
-        );
-    }
-}
+// class Semester extends React.Component{
+//     render(){
+//         return(
+//             <div>
+//                 Semester: {this.props.value}
+//             </div>
+//         );
+//     }
+// }
 class Text extends React.Component{
     render(){
         return(
@@ -69,6 +63,7 @@ export default class ReviewForm extends React.Component {
         return(
             <Container>
 				<Row>
+                    <Col></Col>
 					<Col>Semester</Col>
 					<Col>Professor</Col>
 					<Col>Date</Col>
