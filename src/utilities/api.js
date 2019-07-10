@@ -1,3 +1,5 @@
+import store from '../store.js';
+
 
 const REQUEST_VERBS = Object.freeze({
     GET: "GET",
@@ -14,7 +16,8 @@ const JSON_AND_NOT_OK = "JSON_AND_NOT_OK";
 function getHeaders() {
     return {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'ID-Token': store.getState().loginReducers,
     }
 }
 

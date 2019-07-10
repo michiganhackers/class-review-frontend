@@ -22,8 +22,8 @@ const mapStateToProps = state => ({
     ...state // TODO: grab appropriate data from state
 })
 
-const mapDispatchToProps = () => ({
-    getReviewById: ReviewActions.getReviewByIdRequest
+const mapDispatchToProps = dispatch => ({
+    getReviewById: id => dispatch(ReviewActions.getReviewByIdRequest(id))
     // (Request) action creators go here
 })
 

@@ -4,7 +4,7 @@ import { reviewTypes } from '../constants/action_types';
 import { namespaces } from '../constants/endpoints';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { ReviewActions } from '../actions/review_actions'
-import Url from '../utilities/url';
+import Url from '../utilities/url.js';
 
 function* getReviewById(action) {
     const url = new Url().namespace(namespaces.REVIEW).pathParameter(action.id);
