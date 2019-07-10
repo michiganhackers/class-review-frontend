@@ -1,7 +1,11 @@
-const GET = "GET";
-const PUT = "PUT";
-const POST = "POST";
-const DELETE = "DELETE";
+
+const REQUEST_VERBS = Object.freeze({
+    GET: "GET",
+    PUT: "PUT",
+    POST: "POST",
+    DELETE: "DELETE",
+})
+
 const NOT_JSON_AND_OK = "NOT_JSON_AND_OK";
 const NOT_JSON_AND_NOT_OK = "NOT_JSON_AND_NOT_OK";
 const JSON_AND_NOT_OK = "JSON_AND_NOT_OK";
@@ -79,7 +83,7 @@ export function Get(baseUrl, queryParams, id) {
         url += mapObjectToQueryParamString(queryParams);
     }
     const options = {
-        method: GET,
+        method: REQUEST_VERBS.GET,
         headers: getHeaders()
     };
 
@@ -98,7 +102,7 @@ export function Put(baseUrl, body, id) {
     // Append id if we have one
     url = concatId(url, id);
     const options = {
-        method: PUT,
+        method: REQUEST_VERBS.PUT,
         headers: getHeaders()
     };
     if (body) {
@@ -118,7 +122,7 @@ export function Post(baseUrl, body, id) {
     // Append id if we have one
     url = concatId(url, id);
     const options = {
-        method: POST,
+        method: REQUEST_VERBS.POST,
         headers: getHeaders()
     }
     if (body) {
@@ -138,7 +142,7 @@ export function Delete(baseUrl, body, id) {
     let url = baseUrl;
     url = concatId(url, id);
     const options = {
-        method: DELETE,
+        method: REQUEST_VERBS.DELETE,
         headers: getHeaders()
     }
     if (body) {

@@ -6,7 +6,6 @@ import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers/reducers.js';
 import rootSaga from './sagas/sagas.js';
 import { Provider } from 'react-redux';
-
 import './App.css';
 
 // Initialize redux store
