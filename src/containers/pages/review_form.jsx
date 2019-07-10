@@ -2,70 +2,24 @@ import React, { Component } from 'react';
 import {Bootstrap, Grid, Row, Col, Container, ProgressBar} from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
 
-// const StarBar = props => (<StarRatings rating={this.props.value}>)
-const Date = props => (<div>{props.value}</div>)
-const Semester = props => (<div>Semester: {props.value}</div>)
+const RatingBar = props => (<StarRatings rating={props}
+                            starDimension="25px"
+                            starSpacing="2px">
+                            </StarRatings>)                           
+const Semester = props => { return (<div>Semester: {props}</div>) }
+const Professor = props => { return (<div>Professor: {props}</div>)}
+const Date = props => { return (<div>Date: {props}</div>)}
+const Text = props => { return (<div>{props}</div>)}
+const renderAnonymous = props => { var name = "anonymous"; return {props}? name : "DabYEEET" }
 
-class StarBar extends React.Component {
-    render() {
-      return (
-        <StarRatings
-          rating={this.props.value}
-          starDimension="40px"
-          starSpacing="2px"
-        />
-      );
-    }
-  }
-// class Semester extends React.Component{
-//     render(){
-//         return(
-//             <div>
-//                 Semester: {this.props.value}
-//             </div>
-//         );
-//     }
-// }
-class Text extends React.Component{
-    render(){
-        return(
-            <div>
-                {this.props.value}
-            </div>
-        );
-    }
-}
-class Professor extends React.Component{
-    render(){
-        return(
-            <div>
-                {this.props.value}      
-            </div>
-        );
-    }
-}
 export default class ReviewForm extends React.Component {
-    renderStarRatingBar(numStars){
-        return <StarBar value = {numStars}/>
-    }
-    renderAnonymous(anonymous){
-        var name = "anonymous";
-        if (anonymous){
-            return name;    
-        }
-        return "Brian Yixinxxxxx"; 
-        // return reviewData.User.username; 
-    }
-    renderText(text){
-        return <Text value = {text}/>
-    }
     render(){
         return(
             <Container>
 				<Row>
                     <Col></Col>
-					<Col>Semester</Col>
-					<Col>Professor</Col>
+					<Col>{Semester("Fall 2020")}</Col>
+					<Col>{Professor("")}</Col>
 					<Col>Date</Col>
 					<Col>Icon</Col>
 				</Row>
@@ -74,30 +28,19 @@ export default class ReviewForm extends React.Component {
 
 				<Row>
 					<Col>Overall</Col>
-					<Col>{this.renderStarRatingBar(3)}</Col>					
+					<Col>{RatingBar(3)}</Col>					
 				</Row>
 
 				<Row>
 					<Col>Interest</Col>
-					<Col>{this.renderStarRatingBar(5)}</Col>					
+					<Col>{RatingBar(4.4)}</Col>					
 				</Row>
 
 				<Row>
 					<Col>Difficulty</Col>
-					<Col>{this.renderStarRatingBar(4)}</Col>					
+					<Col>{RatingBar(4.8)}</Col>					
 				</Row>
 
-                <Row>
-                    <Col>{this.renderStarRatingBar(5)}</Col>
-                    <Col>2 of 3 (wider)</Col>
-                    <Col>3 of 3</Col>
-                </Row>
-
-                <Row>
-                    <Col>1 of 3</Col>
-                    <Col md={5}>2 of 3 (wider)</Col>
-                    <Col>3 of 3</Col>
-                </Row>
             </Container>
         
             // <>
