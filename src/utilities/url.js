@@ -1,5 +1,5 @@
 
-const BASE_URL = "localhost:8080/"
+const BASE_URL = "localhost:8080/";
 
 export default class Url {
     // Takes in base URL. If there is not a trailing slash, one is added.
@@ -22,6 +22,10 @@ export default class Url {
     queryStrings(object) {
         this.url += Object.keys(object).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(object[key])).join('&');
         return this;
+    }
+
+    str() {
+        return this.url;
     }
 }
 
