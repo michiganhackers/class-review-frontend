@@ -70,18 +70,7 @@ queryParams (optional): object where each key is the key and each value is the v
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-export function Get(baseUrl, queryParams, id) {
-    let url = baseUrl;
-    // Append id if we have one
-    url = concatId(url, id);
-    // Append query param strig
-    if (queryParams) {
-        // Strip off trailing backslash
-        if (url[url.length - 1] === '/') {
-            url = url.substring(0, -1);
-        }
-        url += mapObjectToQueryParamString(queryParams);
-    }
+export function Get(url, queryParams, id) {
     const options = {
         method: REQUEST_VERBS.GET,
         headers: getHeaders()
@@ -97,10 +86,7 @@ body (optional): object that represents the body of the put request
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-export function Put(baseUrl, body, id) {
-    let url = baseUrl;
-    // Append id if we have one
-    url = concatId(url, id);
+export function Put(url, body, id) {
     const options = {
         method: REQUEST_VERBS.PUT,
         headers: getHeaders()
@@ -117,10 +103,7 @@ body (optional): object that represents the body of the post request
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-export function Post(baseUrl, body, id) {
-    let url = baseUrl;
-    // Append id if we have one
-    url = concatId(url, id);
+export function Post(url, body, id) {
     const options = {
         method: REQUEST_VERBS.POST,
         headers: getHeaders()
@@ -138,9 +121,7 @@ body (optional): object that represents the body of the delete request. Set to n
 id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
-export function Delete(baseUrl, body, id) {
-    let url = baseUrl;
-    url = concatId(url, id);
+export function Delete(url, body, id) {
     const options = {
         method: REQUEST_VERBS.DELETE,
         headers: getHeaders()
