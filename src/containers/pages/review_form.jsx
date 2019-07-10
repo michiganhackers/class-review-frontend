@@ -10,7 +10,7 @@ const Semester = props => { return (<div>Semester: {props}</div>) }
 const Professor = props => { return (<div>Professor: {props}</div>)}
 const Date = props => { return (<div>Date: {props}</div>)}
 const Text = props => { return (<div>{props}</div>)}
-const renderAnonymous = props => { var name = "anonymous"; return {props}? name : "DabYEEET" }
+const renderAnonymous = props => { var name = "anonymous"; return {props} ? name : "DabYEEET" }
 
 export default class ReviewForm extends React.Component {
     render(){
@@ -19,8 +19,8 @@ export default class ReviewForm extends React.Component {
 				<Row>
                     <Col></Col>
 					<Col>{Semester("Fall 2020")}</Col>
-					<Col>{Professor("")}</Col>
-					<Col>Date</Col>
+					<Col>{Professor("James Juett")}</Col>
+					<Col>{Date("09/02/2019")}</Col>
 					<Col>Icon</Col>
 				</Row>
 
