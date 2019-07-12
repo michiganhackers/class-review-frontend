@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { CourseActions } from '../../actions/course_actions.js';
+import { ProfessorActions } from '../../actions/professor_actions.js';
 import styled from 'styled-components';
 
 
@@ -21,6 +22,11 @@ class CoursePage extends React.Component {
 
     componentDidMount() {
         this.props.getCourseById(this.getCourseId());
+        this.props.getAllProfessors();
+    }
+    
+    componentWillReceiveProps(nextProps) {
+        
     }
 
     render() {
@@ -38,7 +44,8 @@ const mapStateToProps = state =>({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getCourseById: id => dispatch(CourseActions.getCourseByIdRequest(id))
+    getCourseById: id => dispatch(CourseActions.getCourseByIdRequest(id)),
+    getAllProfessors: () => dispatch(ProfessorActions.getAllProfessorsRequest()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);

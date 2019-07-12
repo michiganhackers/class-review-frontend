@@ -1,7 +1,8 @@
 // Endpoints
 
-export const namespaces = Object.freeze({
+export const pathSegments = Object.freeze({
     REVIEW: 'review',
     COURSE: 'course',
-    PROFESSOR: 'professor'
+    PROFESSOR: 'professor',
+    NAMES: 'names',
 })

@@ -14,10 +14,11 @@ const JSON_AND_NOT_OK = "JSON_AND_NOT_OK";
 
 // TODO: implement
 function getHeaders() {
+    const state = store.getState()
     return {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'ID-Token': store.getState().loginReducers,
+        //'ID-Token': (state.loginReducers.setLoginTokens && state.loginReducers.setLoginTokens.tokens) ? state.loginReducers.setLoginTokens.tokens.id_token : undefined,
     }
 }
 
