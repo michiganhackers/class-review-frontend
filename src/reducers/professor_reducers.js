@@ -1,22 +1,21 @@
 import { combineReducers } from 'redux';
-import { reviewTypes } from './../constants/action_types';
+import { professorTypes } from './../constants/action_types';
 
-// Recall that your reducer structure defines the structure of the state in the Redux store.
-function getReviewById(state = {}, action) {
+function getAllProfessors(state = {}, action) {
     switch (action.type) {
-        case reviewTypes.GET_REVIEW_BY_ID_REQUEST: 
+        case professorTypes.GET_ALL_PROFESSORS_REQUEST: 
             return {
                 ...state,
                 error: null
             }
-        case reviewTypes.GET_REVIEW_BY_ID_SUCCESS: 
+        case professorTypes.GET_ALL_PROFESSORS_SUCCESS: 
             return {
                 ...state,
                 error: null,
-                review: action.review
+                professors: action.professors
             }
         
-        case reviewTypes.GET_REVIEW_BY_ID_FAILURE: 
+        case professorTypes.GET_ALL_PROFESSORS_FAILURE: 
             return {
                 ...state,
                 error: action.error
@@ -28,7 +27,7 @@ function getReviewById(state = {}, action) {
 }
 
 const reviewReducers = combineReducers({
-    getReviewById
+    getAllProfessors
 })
 
 export default reviewReducers;

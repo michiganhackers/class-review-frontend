@@ -1,6 +1,8 @@
 // Endpoints
 
-export const endpoints = Object.freeze({
-    GET_REVIEW_BY_ID: '/review/', // placeholder, probably
-    GET_COURSE_BY_ID: '/course/'
-});
+export const pathSegments = Object.freeze({
+    REVIEW: 'review',
+    COURSE: 'course',
+    PROFESSOR: 'professor',
+    NAMES: 'names',
+})
