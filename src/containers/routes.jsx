@@ -4,10 +4,9 @@ import ReviewPage from './pages/review_page.jsx';
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CoursePage from './pages/course_page.jsx';
-import LoginButton from '../global_components/login_button';
+import LoginButton from '../global_components/login_button'; // TODO: put this in the navbar
 
 const Home = () => null; // TODO: replace with real homepage
-
 
 export const RouterGroup = () => (
     <Router>

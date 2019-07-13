@@ -22,7 +22,7 @@ class CoursePage extends React.Component {
 
     componentDidMount() {
         this.props.getCourseById(this.getCourseId());
-        this.props.getAllProfessors();
+        this.props.getAllProfessors(); // TODO: remove this; this is here only for demonstratio purposes
     }
 
     render() {
