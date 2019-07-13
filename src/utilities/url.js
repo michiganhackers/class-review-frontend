@@ -1,5 +1,5 @@
 
-const BASE_URL = "http://localhost:8080/";
+const BASE_URL = "http://localhost:8080";
 
 export default class Url {
     // Takes in base URL. If there is not a trailing slash, one is added.
@@ -8,8 +8,8 @@ export default class Url {
     }
 
     // Adds on a namespace (e.g. in localhost:8080/review/5, "review"). Also adds on a trailing slash.
-    pathSegment(name) {
-        this.url += (name + '/');
+    path(name) {
+        this.url += ('/' + name);
         return this;
     }
 

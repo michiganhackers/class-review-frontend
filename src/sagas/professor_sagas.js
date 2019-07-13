@@ -7,15 +7,15 @@ import { ProfessorActions } from '../actions/professor_actions'
 import Url from '../utilities/url.js';
 
 function* getAllProfessors(action) {
-    const url = new Url().pathSegment(pathSegments.PROFESSOR).pathSegment(pathSegments.NAMES);
+    const url = new Url().path(pathSegments.PROFESSOR).path(pathSegments.NAMES);
     const { json, error } = yield call(Get, url); // Object destructuring
     if (error) {
         // Dispatch redux action
-        yield put(ProfessorActions.getAllProfessorsFailure(error)); // TODO: determine what should go here
+        yield put(ProfessorActions.getAllProfessorsFailure(error));
     }
     else {
         // Dispatch redux action
-        yield put(ProfessorActions.getAllProfessorsSuccess(json)); // TODO: see above
+        yield put(ProfessorActions.getAllProfessorsSuccess(json));
     }    
 }
 
