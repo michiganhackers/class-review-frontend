@@ -24,10 +24,6 @@ class CoursePage extends React.Component {
         this.props.getCourseById(this.getCourseId());
         this.props.getAllProfessors();
     }
-    
-    componentWillReceiveProps(nextProps) {
-        
-    }
 
     render() {
         return (

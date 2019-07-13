@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { ReviewActions } from '../../actions/review_actions.js';
 
 class ReviewPage extends React.Component {
-    constructor() {
-        super();
-    }
 
     componentDidMount() {
         this.props.getReviewById(); // Example, TODO: replace with real call
