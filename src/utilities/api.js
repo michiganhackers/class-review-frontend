@@ -35,7 +35,7 @@ function fetcher(url, options) {
                     return response.json();
                 }
                 else {
-                    return Promise.reject({ response, stat: response.status, reason: NOT_JSON_AND_OK });
+                    return Promise.reject({ response, status: response.status, reason: NOT_JSON_AND_OK });
                 }
             }
             else {
@@ -44,7 +44,7 @@ function fetcher(url, options) {
                     return response.json();
                 }
                 else {
-                    return Promise.reject({ response, stat: response.status, reason: NOT_JSON_AND_NOT_OK});
+                    return Promise.reject({ response, status: response.status, reason: NOT_JSON_AND_NOT_OK});
                 }
             }
         })
