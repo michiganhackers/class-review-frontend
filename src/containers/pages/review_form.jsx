@@ -38,16 +38,13 @@ export default class ReviewForm extends React.Component {
     render(){
         return(
             <Container>
-            
+          
 				<Row>
-                    <Col></Col>
 					<Col>{renderSemester("Fall 2020")}</Col>
 					<Col>{renderProfessor("Dr. Yeet")}</Col>
 					<Col>{renderDate("7/12")}</Col>
 					<Col md = {1}>{renderAnonymous(false)}</Col>
 				</Row>
-
-				<Row></Row>
 
 				<Row>
 					<Col>Overall</Col>
@@ -63,6 +60,7 @@ export default class ReviewForm extends React.Component {
 					<Col>Difficulty</Col>
 					<Col>{renderRatingBar(4.8)}</Col>					
 				</Row>
+
                 <Row>
                     <Col>{renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}</Col>
                 </Row>
