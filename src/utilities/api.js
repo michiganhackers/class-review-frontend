@@ -69,7 +69,7 @@ function fetcher(url, options) {
 
 
 /* Perform a get request. One parameter:
-baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+baseUrl: string, the url for the endpoint you wish to hit. See url.js
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
 export function Get(url) {
@@ -83,7 +83,7 @@ export function Get(url) {
 }
 
 /* Perform a put request. Two parameters:
-baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+baseUrl: string, the url for the endpoint you wish to hit. See url.js
 body (optional): object that represents the body of the put request
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
@@ -99,7 +99,7 @@ export function Put(url, body) {
 }
 
 /* Perform a post request. Two parameters:
-baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+baseUrl: string, the url for the endpoint you wish to hit. See url.js
 body (optional): object that represents the body of the post request
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
@@ -116,7 +116,7 @@ export function Post(url, body) {
 }
 
 /* Perform a delete request. Two parameters:
-baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
+baseUrl: string, the url for the endpoint you wish to hit. See url.js
 body (optional): object that represents the body of the delete request. Set to null if not used but you wish to include an id path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
