@@ -68,10 +68,8 @@ function fetcher(url, options) {
 }
 
 
-/* Perform a get request. Three parameters:
+/* Perform a get request. One parameter:
 baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
-queryParams (optional): object where each key is the key and each value is the value for the query string (go figure). Set to null if you're not using query params but are using an id.
-id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
 export function Get(url) {
@@ -84,10 +82,9 @@ export function Get(url) {
     return fetcher(url.str(), options);
 }
 
-/* Perform a put request. Three parameters:
+/* Perform a put request. Two parameters:
 baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
 body (optional): object that represents the body of the put request
-id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
 export function Put(url, body) {
@@ -101,10 +98,9 @@ export function Put(url, body) {
     return fetcher(url.str(), options);
 }
 
-/* Perform a post request. Three parameters:
+/* Perform a post request. Two parameters:
 baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
 body (optional): object that represents the body of the post request
-id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
 export function Post(url, body) {
@@ -119,10 +115,9 @@ export function Post(url, body) {
     return fetcher(url.str(), options);
 }
 
-/* Perform a delete request. Three parameters:
+/* Perform a delete request. Two parameters:
 baseUrl: string, the url for the endpoint you wish to hit without any query strings, ids, etc
 body (optional): object that represents the body of the delete request. Set to null if not used but you wish to include an id path param.
-id (optional): int that will get concatenated onto the baseUrl as a path param.
 Returns an object of the form: {json, error} where json is the unmarshalled body as json (if possible) and error is the error (if any)
 */
 export function Delete(url, body) {
