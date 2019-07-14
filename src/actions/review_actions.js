@@ -23,6 +23,26 @@ export const ReviewActions = {
             type: reviewTypes.GET_REVIEW_BY_ID_FAILURE,
             error
         }
-    }
-    
+    },
+
+    postReviewRequest: review => {
+        return {
+            type: reviewTypes.POST_REVIEW_REQUEST,
+            review
+        }
+    },
+
+    postReviewSuccess: () => {
+        return {
+            type: reviewTypes.POST_REVIEW_SUCCESS,
+        }
+    },
+
+    postReviewFailure: error => {
+        return {
+            type: reviewTypes.GET_REVIEW_BY_ID_FAILURE,
+            error
+        }
+    },
+
 }
