@@ -1,6 +1,7 @@
 import { fork } from 'redux-saga/effects';
 import {
-    getReviewByIdFlow
+    getReviewByIdFlow,
+    postReviewFlow,
 } from './review_sagas.js';
 import {
     getCourseByIdFlow
@@ -9,9 +10,14 @@ import {
     getAllProfessorsFlow
 } from './professor_sagas.js'
 
-// Sagas
 export default function* rootSaga() {
+    // Review sagas
     yield fork(getReviewByIdFlow);
+    yield fork(postReviewFlow);
+
+    // Course sagas
     yield fork(getCourseByIdFlow);
+
+    // Professor sagas
     yield fork(getAllProfessorsFlow);
 }
