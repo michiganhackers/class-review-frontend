@@ -1,3 +1,11 @@
 .align-text {
     margin: 10px;
 }
+
+.ratingBar {
+    color: #1FB6FF;
+}
+
+.text {
+    min-width: 300px;
+}

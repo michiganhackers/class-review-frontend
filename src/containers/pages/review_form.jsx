@@ -5,14 +5,18 @@ import defaultPicture from '../icons/default_profile_picture.png';
 //import ReadMoreReact from 'read-more-react';
 import ReadMoreAndLess from 'react-read-more-less';
 
-const renderRatingBar = props => (<StarRatings rating={props}
-                            starDimension="25px"
-                            starSpacing="2px">
-                            </StarRatings>)                           
+const renderRatingBar = props => (
+    <StarRatings
+    rating={props}
+    starDimension="25px"
+    starSpacing="2px"
+    starRatedColor="#1FB6FF">
+    </StarRatings>)                           
 const renderSemester = props => { return (<div>Semester: {props}</div>) }
 const renderProfessor = props => { return (<div>Professor: {props}</div>)}
 const renderDate = props => { return (<div>Date: {props}</div>)}    
-const renderText = props => { return (<div>{props}</div>)}
+// const renderText = props => { return (<div>{props}</div>)}
+// ^ Might be unnecssary later since we're suing ReadMoreAndLess
 const renderAnonymous = props => {
     //props is bool value
     //name needs to be redefined (import umich pic)\ 
@@ -47,18 +51,18 @@ export default class ReviewForm extends React.Component {
 				</Row>
 
 				<Row>
-					<Col>Overall</Col>
-					<Col>{renderRatingBar(3)}</Col>					
+					<div class="col-0 text">Overall</div>
+					<div class="col-2">{renderRatingBar(3)}</div>				
 				</Row>
 
 				<Row>
-					<Col>Interest</Col>
-					<Col>{renderRatingBar(4.4)}</Col>					
+                    <div class="col-0 text">Interest</div>
+                    <div class="col-2">{renderRatingBar(4.4)}</div>					
 				</Row>
 
 				<Row>
-					<Col>Difficulty</Col>
-					<Col>{renderRatingBar(4.8)}</Col>					
+                    <div class="col-md-auto d-flex justify-content-start align-content-start">Difficulty</div>
+					<div class="col-md-auto d-flex justify-content-start align-content-start">{renderRatingBar(4.8)}</div>					
 				</Row>
 
                 <Row>
