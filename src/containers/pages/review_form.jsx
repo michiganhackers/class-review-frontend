@@ -9,7 +9,7 @@ const renderRatingBar = props => (
     <StarRatings
     rating={props}
     starDimension="25px"
-    starSpacing="2px"
+    starSpacing="4px"
     starRatedColor="#1FB6FF">
     </StarRatings>)                           
 const renderSemester = props => { return (<div>Semester: {props}</div>) }
@@ -49,21 +49,24 @@ export default class ReviewForm extends React.Component {
 					<Col md = {1}>{renderAnonymous(false)}</Col>
 				</Row>
                 <Row>
-                    <Col>
+                    <Col md = {5}>
                         <Row>
-                            <div>Overall</div>
-                            <div>{renderRatingBar(3)}</div>
+                            <Col md = {2}></Col>
+                            <Col md = {2} align = "left">Overall</Col>
+                            <Col md = {8} align = "center">{renderRatingBar(3)}</Col>
                         </Row>
                         <Row>
-                            <div>Interest</div>
-                            <div>{renderRatingBar(4.4)}</div>					
+                            <Col md = {2}></Col>
+                            <Col md = {2} align = "left">Interest</Col>
+                            <Col md = {8} align = "center">{renderRatingBar(4.4)}</Col>					
                         </Row>
                         <Row>
-                            <div>Difficulty</div>
-                            <div>{renderRatingBar(4.8)}</div>					
+                            <Col md = {2}></Col>
+                            <Col md = {2} align = "left">Difficulty</Col>
+                            <Col md = {8} align = "center">{renderRatingBar(4.8)}</Col>					
                         </Row>
                     </Col>   
-                    <Col>
+                    <Col md = {7}>
                         {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
                     </Col>
                 </Row>
