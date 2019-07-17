@@ -42,35 +42,32 @@ export default class ReviewForm extends React.Component {
     render(){
         return(
             <Container>
-          
 				<Row>
 					<Col>{renderSemester("Fall 2020")}</Col>
 					<Col>{renderProfessor("Dr. Yeet")}</Col>
 					<Col>{renderDate("7/12")}</Col>
 					<Col md = {1}>{renderAnonymous(false)}</Col>
 				</Row>
-
-				<Row>
-					<div class="col-0 text">Overall</div>
-					<div class="col-2">{renderRatingBar(3)}</div>				
-				</Row>
-
-				<Row>
-                    <div class="col-0 text">Interest</div>
-                    <div class="col-2">{renderRatingBar(4.4)}</div>					
-				</Row>
-
-				<Row>
-                    <div class="col-md-auto d-flex justify-content-start align-content-start">Difficulty</div>
-					<div class="col-md-auto d-flex justify-content-start align-content-start">{renderRatingBar(4.8)}</div>					
-				</Row>
-
                 <Row>
-                    <Col>{renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}</Col>
+                    <Col>
+                        <Row>
+                            <div>Overall</div>
+                            <div>{renderRatingBar(3)}</div>
+                        </Row>
+                        <Row>
+                            <div>Interest</div>
+                            <div>{renderRatingBar(4.4)}</div>					
+                        </Row>
+                        <Row>
+                            <div>Difficulty</div>
+                            <div>{renderRatingBar(4.8)}</div>					
+                        </Row>
+                    </Col>   
+                    <Col>
+                        {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
+                    </Col>
                 </Row>
-
             </Container>
-        
             // <>
             //  <div>
             //      <div className="overallRating">
