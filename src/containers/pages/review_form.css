@@ -9,3 +9,7 @@
 .text {
     min-width: 300px;
 }
+
+.colored-border{
+    border-style: solid;
+}
