@@ -4,11 +4,13 @@ import StarRatings from 'react-star-ratings';
 import defaultPicture from '../icons/default_profile_picture.png';
 //import ReadMoreReact from 'read-more-react';
 import ReadMoreAndLess from 'react-read-more-less';
+import {MdThumbUp, MdThumbDown} from "react-icons/md";		
+import { number } from 'prop-types';
 
 const renderRatingBar = props => (
     <StarRatings
     rating={props}
-    starDimension="25px"
+    starDimension="18px"
     starSpacing="4px"
     starRatedColor="#1FB6FF">
     </StarRatings>)                           
@@ -17,7 +19,7 @@ const renderProfessor = props => { return (<div>Professor: {props}</div>)}
 const renderDate = props => { return (<div>Date: {props}</div>)}    
 // const renderText = props => { return (<div>{props}</div>)}
 // ^ Might be unnecssary later since we're suing ReadMoreAndLess
-const renderAnonymous = props => {
+const renderAvatar = props => {
     //props is bool value
     //name needs to be redefined (import umich pic)\ 
     var name = "yeet"; 
@@ -38,35 +40,53 @@ const renderTextBox = props => (
         {props}
     </ReadMoreAndLess>
 )
+const renderThumbs = (up, numThumbs) =>{		
+    if(up){		
+        return(		
+            <div> <MdThumbUp/> {numThumbs}</div>		
+        )		
+    }else{		
+        return(		
+            <div><MdThumbDown/> {numThumbs}</div>		
+        )		
+    }		
+}
+
 export default class ReviewForm extends React.Component {
     render(){
         return(
-            <Container>
+            <Container class = "colored-border">
 				<Row>
 					<Col>{renderSemester("Fall 2020")}</Col>
 					<Col>{renderProfessor("Dr. Yeet")}</Col>
 					<Col>{renderDate("7/12")}</Col>
-					<Col md = {1}>{renderAnonymous(false)}</Col>
+                    <Col xs={3} md={1}>{renderAvatar(false)}</Col>
 				</Row>
                 <Row>
-                    <Col md = {5}>
-                        <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "left">Overall</Col>
-                            <Col md = {8} align = "center">{renderRatingBar(3)}</Col>
+                    <Col md={5}>
+                        <Row class="d-flex align-content-start flex-wrap">
+                            <Col md={2}></Col>
+                            <Col md={3} align="left" class="category-text">Overall</Col>
+                            <Col md={7} align="left">{renderRatingBar(3)}</Col>
+                        </Row>
+                        <Row class="d-flex align-content-start flex-wrap">
+                            <Col md={2}></Col>
+                            <Col md={3} align="left" class="category-text">Interest</Col>
+                            <Col md={7} align="left">{renderRatingBar(4.4)}</Col>					
+                        </Row>
+                        <Row class="d-flex align-content-start flex-wrap">
+                            <Col md={2}></Col>
+                            <Col md={3} align="left" class="category-text">Difficulty</Col>
+                            <Col md={7} align="left">{renderRatingBar(4.8)}</Col>					
                         </Row>
                         <Row>
                             <Col md = {2}></Col>
-                            <Col md = {2} align = "left">Interest</Col>
-                            <Col md = {8} align = "center">{renderRatingBar(4.4)}</Col>					
-                        </Row>
-                        <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "left">Difficulty</Col>
-                            <Col md = {8} align = "center">{renderRatingBar(4.8)}</Col>					
+                            <Col md = {2} align = "right">{renderThumbs(true, 14)}</Col>
+                            <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
+                             
                         </Row>
                     </Col>   
-                    <Col md = {7}>
+                    <Col md={7} class="category-text">
                         {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
                     </Col>
                 </Row>
