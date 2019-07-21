@@ -3,6 +3,7 @@ import reviewReducers from './review_reducers.js';
 import courseReducers from './course_reducers.js';
 import loginReducers from './login_reducers.js';
 import professorReducers from './professor_reducers.js';
+import searchReducers from './search_reducers.js';
 import { combineReducers } from 'redux';
 
 const reducer = combineReducers({
@@ -10,6 +11,7 @@ const reducer = combineReducers({
     courseReducers,
     loginReducers,
     professorReducers,
+    searchReducers,
 })
 
 export default reducer;
