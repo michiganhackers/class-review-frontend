@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { OAuth2Client } from 'google-auth-library';
 import { LoginActions } from '../actions/login_actions';
 import styled from 'styled-components';
+import logoutUser from '../utilities/logout_user.js';
 
 class LoginButton extends React.Component {
     constructor(){
@@ -14,7 +15,6 @@ class LoginButton extends React.Component {
         };
         this.getLoginUrl = this.getLoginUrl.bind(this);
         this.getProfileInfo = this.getProfileInfo.bind(this);
-        this.logoutUser = this.logoutUser.bind(this);
         this.loginUser = this.loginUser.bind(this);
         this.renderLoginButton = this.renderLoginButton.bind(this);
         this.renderLogoutButton = this.renderLogoutButton.bind(this);
@@ -109,10 +109,10 @@ class LoginButton extends React.Component {
         return (<LoginWithGoogle onClick={this.loginUser}/>);
     }
 
-    logoutUser() {
+    logoutUser(onLogout) {
         localStorage.setItem("wolverinerank-current-page", window.location);
         localStorage.removeItem("wolverinerank-refresh-token");
-        this.props.clearProfileInfo();
+        onLogout();
         window.location = localStorage.getItem("wolverinerank-current-page");
     }
 
@@ -127,7 +127,7 @@ class LoginButton extends React.Component {
             border-radius: 3px;
             border: 1px solid gray;
         `;
-        return (<span>Logged in as {this.state.email}. <Logout onClick={this.logoutUser}>Logout</Logout></span>);
+        return (<span>Logged in as {this.state.email}. <Logout onClick={() => { logoutUser(this.props.clearProfileInfo) }}>Logout</Logout></span>);
     }
 
     render() {
