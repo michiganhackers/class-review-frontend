@@ -12,13 +12,17 @@ const NOT_JSON_AND_OK = "NOT_JSON_AND_OK";
 const NOT_JSON_AND_NOT_OK = "NOT_JSON_AND_NOT_OK";
 const JSON_AND_NOT_OK = "JSON_AND_NOT_OK";
 
+function getIdTokenIfExists() {
+    const state = store.getState();
+    return (state.loginReducers.setLoginTokens && state.loginReducers.setLoginTokens.tokens) ? state.loginReducers.setLoginTokens.tokens.id_token : undefined;
+}
+
 // TODO: implement
 function getHeaders() {
-    const state = store.getState()
     return {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        //'ID-Token': (state.loginReducers.setLoginTokens && state.loginReducers.setLoginTokens.tokens) ? state.loginReducers.setLoginTokens.tokens.id_token : undefined,
+        'ID-Token': getIdTokenIfExists(),
     }
 }
 
