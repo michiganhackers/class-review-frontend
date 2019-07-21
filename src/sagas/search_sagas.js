@@ -1,12 +1,15 @@
 
 import { Get } from '../utilities/api';
 import { searchTypes } from '../constants/action_types';
-import { endpoints } from '../constants/endpoints';
-import { call, put, takeLatest, actionChannel } from 'redux-saga/effects';
+import { pathSegments } from '../constants/endpoints';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { SearchActions } from '../actions/search_actions'
+import Url from '../utilities/url.js';
 
-function* getSearchResults(action) {                                
-    const { json, error } = yield call(Get, endpoints.GET_SEARCH_RESULTS, null, action.query); // Object destructuring
+
+function* getSearchResults(action) {  
+    const url = new Url().path(pathSegments.SEARCH).queryStrings({query: action.query})            
+    const { json, error } = yield call(Get, url); // Object destructuring
     if (error) {
         // Dispatch redux action
         yield put(SearchActions.getSearchResultsFailure(error));
@@ -17,6 +20,6 @@ function* getSearchResults(action) {
     }
 }
 
-export function* getCourseByIdFlow() {
+export function* getSearchResultsFlow() {
     yield takeLatest(searchTypes.GET_SEARCH_RESULTS_REQUEST, getSearchResults);
 }
