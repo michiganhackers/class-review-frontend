@@ -4,7 +4,7 @@ import StarRatings from 'react-star-ratings';
 import defaultPicture from '../icons/default_profile_picture.png';
 //import ReadMoreReact from 'read-more-react';
 import ReadMoreAndLess from 'react-read-more-less';
-import {MdThumbUp, MdThumbDown} from "react-icons/md";		
+import {MdThumbUp, MdThumbDown} from "react-icons/md";
 import { number } from 'prop-types';
 
 const renderRatingBar = props => (
@@ -40,18 +40,17 @@ const renderTextBox = props => (
         {props}
     </ReadMoreAndLess>
 )
-const renderThumbs = (up, numThumbs) =>{		
-    if(up){		
-        return(		
-            <div> <MdThumbUp/> {numThumbs}</div>		
-        )		
-    }else{		
-        return(		
-            <div><MdThumbDown/> {numThumbs}</div>		
-        )		
-    }		
+const renderThumbs = (up, numThumbs) =>{
+    if(up){
+        return(
+            <div> <MdThumbUp/> {numThumbs}</div>
+        )
+    }else{
+        return(
+            <div><MdThumbDown/> {numThumbs}</div>
+        )
+    }
 }
-
 export default class ReviewForm extends React.Component {
     render(){
         return(
@@ -85,11 +84,19 @@ export default class ReviewForm extends React.Component {
                             <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
                              
                         </Row>
+                        <Row>
+                            <Col md = {2}></Col>
+                            <Col md = {2} align = "right">{renderThumbs(true, 14)}</Col>
+                            <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
+                             
+                        </Row>
                     </Col>   
                     <Col md={7} class="category-text">
                         {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
                     </Col>
                 </Row>
+                
+
             </Container>
             // <>
             //  <div>

@@ -1,3 +1,15 @@
 .category-text {
     font-size: 18px;
 }
+
+.ratingBar {
+    color: #1FB6FF;
+}
+
+.text {
+    min-width: 300px;
+}
+
+.colored-border{
+    border-style: solid;
+}
