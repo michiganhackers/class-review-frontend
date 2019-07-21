@@ -17,7 +17,6 @@ function* getReviewById(action) {
         // Dispatch redux action
         yield put(ReviewActions.getReviewByIdSuccess(json)); // TODO: see above
     }
-    
 }
 
 export function* getReviewByIdFlow() {
@@ -29,13 +28,12 @@ function* postReview(action) {
     const { json, error } = yield call(Post, url, action.review); // Object destructuring
     if (error) {
         // Dispatch redux action
-        yield put(ReviewActions.postReviewFailure(error)); // TODO: determine what should go here
+        yield put(ReviewActions.postReviewFailure(error));
     }
     else {
         // Dispatch redux action
-        yield put(ReviewActions.postReviewSuccess(json)); // TODO: see above
+        yield put(ReviewActions.postReviewSuccess(json));
     }
-    
 }
 
 export function* postReviewFlow() {

@@ -2,7 +2,7 @@
 import { Get } from '../utilities/api';
 import { courseTypes } from '../constants/action_types';
 import { endpoints } from '../constants/endpoints';
-import { call, put, takeLatest, actionChannel } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { CourseActions } from '../actions/course_actions'
 
 function* getCourseById(action) {
