@@ -6,12 +6,13 @@ import defaultPicture from '../icons/default_profile_picture.png';
 import ReadMoreAndLess from 'react-read-more-less';
 import {MdThumbUp, MdThumbDown} from "react-icons/md";
 import { number } from 'prop-types';
+import './review_form.css';
 
 const renderRatingBar = props => (
     <StarRatings
     rating={props}
     starDimension="25px"
-    starSpacing="4px"
+    starSpacing="1px"
     starRatedColor="#1FB6FF">
     </StarRatings>)                           
 const renderSemester = props => { return (<div>Semester: {props}</div>) }
@@ -51,46 +52,46 @@ const renderThumbs = (up, numThumbs) =>{
         )
     }
 }
+
 export default class ReviewForm extends React.Component {
     render(){
         return(
-            <Container class = "colored-border">
-				<Row>
-					<Col>{renderSemester("Fall 2020")}</Col>
-					<Col>{renderProfessor("Dr. Yeet")}</Col>
-					<Col>{renderDate("7/12")}</Col>
-					<Col xs = {3} md = {1}>{renderPicture(false)}</Col>
-				</Row>
-                <Row>
-                    <Col md = {5}>
-                        <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "left">Overall</Col>
-                            <Col md = {8} align = "center">{renderRatingBar(3)}</Col>
-                        </Row>
-                        <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "left">Interest</Col>
-                            <Col md = {8} align = "center">{renderRatingBar(4.4)}</Col>					
-                        </Row>
-                        <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "left">Difficulty</Col>
-                            <Col md = {8} align = "center">{renderRatingBar(4.8)}</Col>					
-                        </Row>
-                        <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "right">{renderThumbs(true, 14)}</Col>
-                            <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
-                             
-                        </Row>
-                    </Col>   
-                    <Col md = {7}>
-                        {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
-                    </Col>
-                </Row>
-                
-
+            <Container>
+                <div className = "border border-secondary m-3 py-3 px-5 rounded-lg">
+                    <Row>
+                        <Col>{renderSemester("Fall 2020")}</Col>
+                        <Col>{renderProfessor("Dr. Yeet")}</Col>
+                        <Col>{renderDate("7/12")}</Col>
+                        <Col xs = {3} md = {1}>{renderPicture(false)}</Col>
+                    </Row>
+                    <Row>
+                        <Col md = {3}>
+                            <Row>                                
+                                <Col md = {4} align = "left">Overall</Col>
+                                <Col md = {8} align = "left">{renderRatingBar(3)}</Col>
+                            </Row>
+                            <Row>
+                                
+                                <Col md = {4} align = "left">Interest</Col>
+                                <Col md = {8} align = "left">{renderRatingBar(4.4)}</Col>					
+                            </Row>
+                            <Row>
+                                
+                                <Col md = {4} align = "left">Difficulty</Col>
+                                <Col md = {8} align = "left">{renderRatingBar(4.8)}</Col>					
+                            </Row>
+                            <Row>
+                                <Col md = {4} ></Col>
+                                <Col md = {2} align = "left">{renderThumbs(true, 14)}</Col>
+                                <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
+                                    
+                            </Row>
+                        </Col>   
+                        <Col md = {9}>
+                            {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
+                        </Col>
+                    </Row>
+                </div>   
             </Container>
             // <>
             //  <div>
