@@ -3,7 +3,8 @@
 }
 
 .ratingBar {
-    color: #1FB6FF;
+    /* color: #1FB6FF; */
+    color: red;
 }
 
 .text {

@@ -6,6 +6,7 @@ import defaultPicture from '../icons/default_profile_picture.png';
 import ReadMoreAndLess from 'react-read-more-less';
 import {MdThumbUp, MdThumbDown} from "react-icons/md";
 import { number } from 'prop-types';
+import './review_form.css'
 
 const renderRatingBar = props => (
     <StarRatings
@@ -54,7 +55,7 @@ const renderThumbs = (up, numThumbs) =>{
 export default class ReviewForm extends React.Component {
     render(){
         return(
-            <Container class = "colored-border">
+            <Container className="colored-border">
 				<Row>
 					<Col>{renderSemester("Fall 2020")}</Col>
 					<Col>{renderProfessor("Dr. Yeet")}</Col>
@@ -63,35 +64,29 @@ export default class ReviewForm extends React.Component {
 				</Row>
                 <Row>
                     <Col md={5}>
-                        <Row class="d-flex align-content-start flex-wrap">
+                        <Row className="d-flex align-content-start flex-wrap">
                             <Col md={2}></Col>
-                            <Col md={3} align="left" class="category-text">Overall</Col>
+                            <Col md={3} align="left" className="category-text">Overall</Col>
                             <Col md={7} align="left">{renderRatingBar(3)}</Col>
                         </Row>
-                        <Row class="d-flex align-content-start flex-wrap">
+                        <Row className="d-flex align-content-start flex-wrap">
                             <Col md={2}></Col>
-                            <Col md={3} align="left" class="category-text">Interest</Col>
+                            <Col md={3} align="left" className="category-text">Interest</Col>
                             <Col md={7} align="left">{renderRatingBar(4.4)}</Col>					
                         </Row>
-                        <Row class="d-flex align-content-start flex-wrap">
+                        <Row className="d-flex align-content-start flex-wrap">
                             <Col md={2}></Col>
-                            <Col md={3} align="left" class="category-text">Difficulty</Col>
+                            <Col md={3} align="left" className="category-text">Difficulty</Col>
                             <Col md={7} align="left">{renderRatingBar(4.8)}</Col>					
                         </Row>
                         <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "right">{renderThumbs(true, 14)}</Col>
-                            <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
-                             
-                        </Row>
-                        <Row>
-                            <Col md = {2}></Col>
-                            <Col md = {2} align = "right">{renderThumbs(true, 14)}</Col>
-                            <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
+                            <Col md={2}></Col>
+                            <Col md={2} align="right">{renderThumbs(true, 14)}</Col>
+                            <Col md={2} align="left">{renderThumbs(false, 1)}</Col>
                              
                         </Row>
                     </Col>   
-                    <Col md={7} class="category-text">
+                    <Col md={7} className="category-text">
                         {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
                     </Col>
                 </Row>
