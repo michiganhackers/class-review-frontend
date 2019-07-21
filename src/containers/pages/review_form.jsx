@@ -6,12 +6,12 @@ import defaultPicture from '../icons/default_profile_picture.png';
 import ReadMoreAndLess from 'react-read-more-less';
 import {MdThumbUp, MdThumbDown} from "react-icons/md";
 import { number } from 'prop-types';
-import './review_form.css'
+import './review_form.css';
 
 const renderRatingBar = props => (
     <StarRatings
     rating={props}
-    starDimension="18px"
+    starDimension="20px"
     starSpacing="4px"
     starRatedColor="#1FB6FF">
     </StarRatings>)                           
@@ -55,7 +55,7 @@ const renderThumbs = (up, numThumbs) =>{
 export default class ReviewForm extends React.Component {
     render(){
         return(
-            <Container className="colored-border">
+            <Container className="border border-secondary m-3 py-3 px-5 rounded-lg">
 				<Row>
 					<Col>{renderSemester("Fall 2020")}</Col>
 					<Col>{renderProfessor("Dr. Yeet")}</Col>
@@ -63,18 +63,18 @@ export default class ReviewForm extends React.Component {
                     <Col xs={3} md={1}>{renderAvatar(false)}</Col>
 				</Row>
                 <Row>
-                    <Col md={5}>
-                        <Row className="d-flex align-content-start flex-wrap">
-                            <Col md={2}></Col>
-                            <Col md={3} align="left" className="category-text">Overall</Col>
-                            <Col md={7} align="left">{renderRatingBar(3)}</Col>
+                    <Col xs={5} md={5}>
+                        <Row className="d-flex align-content-start">
+                            <Col xs={0} md={2}></Col>
+                            <Col xs={3} md={3} align="left" className="category-text">Overall</Col>
+                            <Col xs={9} md={7} align="left">{renderRatingBar(3)}</Col>
                         </Row>
-                        <Row className="d-flex align-content-start flex-wrap">
-                            <Col md={2}></Col>
-                            <Col md={3} align="left" className="category-text">Interest</Col>
-                            <Col md={7} align="left">{renderRatingBar(4.4)}</Col>					
+                        <Row className="d-flex align-content-start">
+                            <Col xs={0} md={2}></Col>
+                            <Col xs={3} md={3} align="left" className="category-text">Interest</Col>
+                            <Col xs={7} md={7} align="left">{renderRatingBar(4.4)}</Col>					
                         </Row>
-                        <Row className="d-flex align-content-start flex-wrap">
+                        <Row className="d-flex align-content-start">
                             <Col md={2}></Col>
                             <Col md={3} align="left" className="category-text">Difficulty</Col>
                             <Col md={7} align="left">{renderRatingBar(4.8)}</Col>					
