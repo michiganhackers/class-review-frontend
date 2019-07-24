@@ -82,7 +82,7 @@ class SearchBar extends React.Component {
                     <Collapse in={this.state.navOpen}>
                         <div className='bg-light' id='collapsedNavbarContent'>
                             <Form className='position-relative' inline>
-                                <FormControl type='text' placeholder='Search for a class' className='w-100' />
+                                <FormControl type='text' placeholder='Search for a class' className='w-100' onChange={this.requestSearchResults} />
                                 {this.drawSearchResults()}
                             </Form>
                             <LoginButton/>
