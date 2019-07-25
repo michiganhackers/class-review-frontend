@@ -62,32 +62,32 @@ export default class ReviewForm extends React.Component {
                         <Col>{renderSemester("Fall 2020")}</Col>
                         <Col>{renderProfessor("Dr. Yeet")}</Col>
                         <Col>{renderDate("7/12")}</Col>
-                        <Col xs = {3} md = {1}>{renderPicture(false)}</Col>
+                        <Col xs={3} md={1}>{renderPicture(false)}</Col>
                     </Row>
                     <Row>
-                        <Col md = {3}>
+                        <Col md={3}>
                             <Row>                                
-                                <Col md = {4} align = "left">Overall</Col>
-                                <Col md = {8} align = "left">{renderRatingBar(3)}</Col>
+                                <Col md={4} align="left">Overall</Col>
+                                <Col md={8} align="left">{renderRatingBar(3)}</Col>
                             </Row>
                             <Row>
                                 
-                                <Col md = {4} align = "left">Interest</Col>
-                                <Col md = {8} align = "left">{renderRatingBar(4.4)}</Col>					
+                                <Col md={4} align="left">Interest</Col>
+                                <Col md={8} align="left">{renderRatingBar(4.4)}</Col>					
                             </Row>
                             <Row>
                                 
-                                <Col md = {4} align = "left">Difficulty</Col>
-                                <Col md = {8} align = "left">{renderRatingBar(4.8)}</Col>					
+                                <Col md={4} align="left">Difficulty</Col>
+                                <Col md={8} align="left">{renderRatingBar(4.8)}</Col>					
                             </Row>
                             <Row>
-                                <Col md = {4} ></Col>
-                                <Col md = {2} align = "left">{renderThumbs(true, 14)}</Col>
-                                <Col md = {2} align = "left">{renderThumbs(false, 1)}</Col>
+                                <Col md={4} ></Col>
+                                <Col md={2} align="left">{renderThumbs(true, 14)}</Col>
+                                <Col md={2} align="left">{renderThumbs(false, 1)}</Col>
                                     
                             </Row>
                         </Col>   
-                        <Col md = {9} className = "border border-info rounded-lg">
+                        <Col md={9} className="border border-info rounded-lg">
                             {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
                         </Col>
                     </Row>
