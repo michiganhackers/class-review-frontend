@@ -94,7 +94,7 @@ class SearchBar extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    results: (state.searchReducers.getSearchResults.results)
+    results: (state.searchReducers.getSearchResults.results) || [] 
 })
 
 const mapDispatchToProps = dispatch => ({
