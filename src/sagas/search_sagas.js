@@ -9,12 +9,11 @@ import mockClasses from '../utilities/mock.js';
 
 
 function* getSearchResults(action) {  
-    const url = new Url().path(pathSegments.SEARCH).queryStrings({query: action.query});
-
     if (action.query === "") {
         yield put(SearchActions.getSearchResultsSuccess([]));
     }
     else {
+        const url = new Url().path(pathSegments.COURSE).path(pathSegments.SEARCH).queryStrings({query: action.query});
         const { json, error } = { json: mockClasses(), error: null }; // yield call(Get, url); // Object destructuring
         if (error) {
             // Dispatch redux action
