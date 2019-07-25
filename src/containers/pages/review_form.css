@@ -1,9 +1,11 @@
-.align-text {
-    margin: 10px;
+.category-text {
+    font-size: 18px;
+    margin-right: 8px;
 }
 
 .ratingBar {
-    color: #1FB6FF;
+    /* color: #1FB6FF; */
+    color: red;
 }
 
 .text {
@@ -11,5 +13,5 @@
 }
 
 .colored-border{
-    /*border-style: solid;*/
+    border-style: solid;
 }

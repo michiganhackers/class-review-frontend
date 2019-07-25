@@ -87,7 +87,7 @@ export default class ReviewForm extends React.Component {
                                     
                             </Row>
                         </Col>   
-                        <Col md = {9}>
+                        <Col md = {9} className = "border border-info rounded-lg">
                             {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
                         </Col>
                     </Row>
