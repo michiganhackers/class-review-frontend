@@ -41,16 +41,11 @@ const renderTextBox = props => (
         {props}
     </ReadMoreAndLess>
 )
-const renderThumbs = (up, numThumbs) =>{
-    if(up){
-        return(
-            <div> <MdThumbUp/> {numThumbs}</div>
-        )
-    }else{
-        return(
-            <div><MdThumbDown/> {numThumbs}</div>
-        )
-    }
+
+const renderThumbs = (upNumThumbs, downNumThumbs) =>{
+    return (
+        <div> <MdThumbUp/> {upNumThumbs} <span> &nbsp; </span>  <MdThumbDown/> {downNumThumbs}</div>
+    )
 }
 
 export default class ReviewForm extends React.Component {
@@ -80,9 +75,8 @@ export default class ReviewForm extends React.Component {
                                 <Col xs={9} md={8} align="left" className = "my-auto">{renderRatingBar(4.8)}</Col>					
                             </Row>
                             <Row>
-                                <Col md={2}></Col>
-                                <Col md={2} align="right">{renderThumbs(true, 14)}</Col>
-                                <Col md={2} align="left">{renderThumbs(false, 1)}</Col>    
+                                <Col  md={2}></Col>
+                                <Col xs = "auto" md="auto" align = "right">{renderThumbs(14, 1)}</Col> 
                             </Row>
                         </Col>   
                         <Col md={9} className="border rounded-lg px-2 py-4 mt-2 colored-textbox">
