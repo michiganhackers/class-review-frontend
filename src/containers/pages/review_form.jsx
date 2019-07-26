@@ -67,30 +67,29 @@ export default class ReviewForm extends React.Component {
                     <Row>
                         <Col md={3}>
                             <Row>                                
-                                <Col md={4} align="left">Overall</Col>
-                                <Col md={8} align="left">{renderRatingBar(3)}</Col>
+                                <Col xs={3} md={4} align="left" className = "my-auto">Overall</Col>
+                                <Col xs={9} md={8} align="left" className = "my-auto">{renderRatingBar(3)}</Col>
                             </Row>
                             <Row>
                                 
-                                <Col md={4} align="left">Interest</Col>
-                                <Col md={8} align="left">{renderRatingBar(4.4)}</Col>					
+                                <Col xs={3} md={4} align="left" className = "my-auto">Interest</Col>
+                                <Col xs={9} md={8} align="left" className = "my-auto">{renderRatingBar(4.4)}</Col>					
+                            </Row>
+                            <Row>     
+                                <Col xs={3} md={4} align="left" className = "my-auto">Difficulty</Col>
+                                <Col xs={9} md={8} align="left" className = "my-auto">{renderRatingBar(4.8)}</Col>					
                             </Row>
                             <Row>
-                                
-                                <Col md={4} align="left">Difficulty</Col>
-                                <Col md={8} align="left">{renderRatingBar(4.8)}</Col>					
-                            </Row>
-                            <Row>
-                                <Col md={4} ></Col>
-                                <Col md={2} align="left">{renderThumbs(true, 14)}</Col>
-                                <Col md={2} align="left">{renderThumbs(false, 1)}</Col>
-                                    
+                                <Col md={2}></Col>
+                                <Col md={2} align="right">{renderThumbs(true, 14)}</Col>
+                                <Col md={2} align="left">{renderThumbs(false, 1)}</Col>    
                             </Row>
                         </Col>   
-                        <Col md={9} className="border rounded-lg px-2 pt-4 mt-2 colored-textbox">
+                        <Col md={9} className="border rounded-lg px-2 py-4 mt-2 colored-textbox">
                             {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works. blah blah blah blah balh balhb ajdkas ajsdklsajdkl aksdjsakl askdjsakl dsajkdj dsakjdlk yeet why is this not working pls work yeet yeet yeet yeet yeet ")}     
                         </Col>
                     </Row>
+                
                 </div>   
             </Container>
             // <>
