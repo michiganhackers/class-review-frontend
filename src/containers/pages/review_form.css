@@ -12,6 +12,14 @@
     min-width: 300px;
 }
 
-.colored-border{
-    border-style: solid;
+
+.colored-reviewBox{
+    background: #a6a6a6;
+    border-color: #a6a6a6;
 }
+
+.colored-textbox{
+    background: #b3b3b3;
+    border-color: #b3b3b3;
+}
+

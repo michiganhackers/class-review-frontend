@@ -34,7 +34,7 @@ const renderPicture = props => {
 const renderTextBox = props => (
     <ReadMoreAndLess
         className="read-more-content"
-        charLimit={200}
+        charLimit={300}
         readMoreText="Read More"
         readLessText="Read Less"
     >
@@ -57,7 +57,7 @@ export default class ReviewForm extends React.Component {
     render(){
         return(
             <Container>
-                <div className = "border border-secondary m-3 py-3 px-5 rounded-lg">
+                <div className = "border border-secondary m-3 py-3 px-5 rounded-lg bg-light">
                     <Row>
                         <Col>{renderSemester("Fall 2020")}</Col>
                         <Col>{renderProfessor("Dr. Yeet")}</Col>
@@ -87,8 +87,8 @@ export default class ReviewForm extends React.Component {
                                     
                             </Row>
                         </Col>   
-                        <Col md={9} className="border border-info rounded-lg">
-                            {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works.")}     
+                        <Col md={9} className="border rounded-lg px-2 pt-4 mt-2 colored-textbox">
+                            {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works. blah blah blah blah balh balhb ajdkas ajsdklsajdkl aksdjsakl askdjsakl dsajkdj dsakjdlk yeet why is this not working pls work yeet yeet yeet yeet yeet ")}     
                         </Col>
                     </Row>
                 </div>   
