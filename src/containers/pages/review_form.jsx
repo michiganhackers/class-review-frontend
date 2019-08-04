@@ -51,7 +51,7 @@ export default class ReviewForm extends React.Component {
     render(){
         return(
             <Container>
-                <div className = "border border-secondary m-10 py-3 px-4 rounded-lg bg-light">
+                <div className="border border-secondary m-10 py-3 px-4 rounded-lg bg-light">
                     <Row>
                         <Col className="my-auto">{renderSemester("Fall 2020")}</Col>
                         <Col className="my-auto">{renderProfessor("Dr. Yeet")}</Col>
