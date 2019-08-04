@@ -27,10 +27,11 @@ const renderRatingBar = (lab, props) =>{ return(
 const renderReviews = props =>{
     var rows = []
     for(var i = 0; i < props; i++){
-        rows.push(<ReviewForm/>)    
+        rows.push(<ReviewForm/>)
+        rows.push(<div className = "p-2"></div>)//white space    
     }
     return(
-        <div>{rows}</div>
+        <div className = "p-5">{rows}</div>
     )
 }
 export default class ReviewPage extends React.Component{
