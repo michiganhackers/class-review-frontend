@@ -10,7 +10,7 @@ const Home = () => null; // TODO: replace with real homepage
 export const RouterGroup = () => (
     <Router>
         <React.Fragment>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Home} />
             <Route path="/course" component={CoursePage}/>
             <Route path="/yote" component={ReviewForm}/>
             <Route path="/yeet" component={ReviewPage}/>

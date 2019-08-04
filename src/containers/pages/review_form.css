@@ -12,7 +12,9 @@
     min-width: 300px;
 }
 
-
+.bg-image{
+    background-color: #b9e7f0;
+}
 .colored-reviewBox{
     background: #a6a6a6;
     border-color: #a6a6a6;
@@ -26,3 +28,9 @@
 .enlargen-text{
     font-size: 20px;
 }
+
+.class-description{
+    background: #f7f0b7;
+    border-color: black;
+}
+
