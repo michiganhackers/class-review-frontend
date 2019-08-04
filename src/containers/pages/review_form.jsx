@@ -51,30 +51,29 @@ export default class ReviewForm extends React.Component {
     render(){
         return(
             <Container>
-                <div className = "border border-secondary m-3 py-3 px-5 rounded-lg bg-light">
+                <div className = "border border-secondary m-10 py-3 px-4 rounded-lg bg-light">
                     <Row>
                         <Col className="my-auto">{renderSemester("Fall 2020")}</Col>
                         <Col className="my-auto">{renderProfessor("Dr. Yeet")}</Col>
                         <Col className="my-auto">{renderDate("7/12")}</Col>
-                        <Col xs={3} md={1} className = "my-auto">{renderPicture(false)}</Col>
+                        <Col xs={3} md={1} className="my-auto">{renderPicture(false)}</Col>
                     </Row>
                     <Row>
                         <Col s={5} md={5} lg={4}>
                             <Row>                               
-                                <Col xs={4} s={4} md={3} align="left" className="my-auto mx-auto">Overall</Col>
-                                <Col xs={8} s={8} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(3)}</Col>
+                                <Col xs={3} s={3} md={3} align="left" className="my-auto mx-auto">Overall</Col>
+                                <Col xs={9} s={9} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(3)}</Col>
                             </Row>
                             <Row>
-                                
-                                <Col xs={4} s={4} md={3} align="left" className="my-auto mx-auto">Interest</Col>
-                                <Col xs={8} s={8} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.4)}</Col>					
+                                <Col xs={3} s={3} md={3} align="left" className="my-auto mx-auto">Interest</Col>
+                                <Col xs={9} s={9} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.4)}</Col>					
                             </Row>
                             <Row>     
-                                <Col xs={4} s={4} md={3} align="left" className="my-auto mx-auto">Difficulty</Col>
-                                <Col xs={8} s={8} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.8)}</Col>					
+                                <Col xs={3} s={3} md={3} align="left" className="my-auto mx-auto">Difficulty</Col>
+                                <Col xs={9} s={9} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.8)}</Col>					
                             </Row>
                             <Row>
-                                <Col  md={2}></Col>
+                                <Col md={2}></Col>
                                 <Col xs="auto" md="auto" align="right">{renderThumbs(14, 1)}</Col> 
                             </Row>
                         </Col>   
