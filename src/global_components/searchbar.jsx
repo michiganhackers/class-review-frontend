@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LoginButton from './login_button.jsx';
-import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
+import Collapse from 'react-bootstrap/Collapse';
+import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
-import Dropdown from 'react-bootstrap/Dropdown';
+import Navbar from 'react-bootstrap/Navbar';
 import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
-import Collapse from 'react-bootstrap/Collapse';
-import Button from 'react-bootstrap/Button';
-import { SearchActions } from '../actions/search_actions.js'
+import { SearchActions } from '../actions/search_actions.js';
 
 class SearchBar extends React.Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             navOpen: false,
@@ -26,16 +26,24 @@ class SearchBar extends React.Component {
     }
 
     drawSearchResults() {
-        let searchResults = [];
-        if (this.props.results){
-            searchResults = this.props.results.map(course => {
-                return (<Dropdown.Item key={course.id.toString()} href={'/course/' + course.id}>{course.title}</Dropdown.Item>);
-            });
-        }
+        const ResultText = styled.p`
+            margin-bottom: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        `;
+        const searchResults = this.props.results.map(course => {
+            return (
+            <Dropdown.Item className="border-bottom" key={course.id.toString()} href={'/course/' + course.id}>
+                <ResultText className="font-weight-bold"> {course.department + " " + course.number} </ResultText>
+                <ResultText className="font-italic"> {course.title} </ResultText>
+            </Dropdown.Item>);
+        });
         const Results = styled(Dropdown.Menu)`
             position: absolute;
             width: 100%;
             margin-top: 0px;
+            padding-bottom: 0px;
             :empty {
                 display: none;
             }
@@ -56,14 +64,14 @@ class SearchBar extends React.Component {
                     <Navbar.Brand href='/'>
                         <img
                             src={logoUrl}
-                            width='30'
-                            height='30'
+                            width={30}
+                            height={30}
                             className='d-inline-block align-top'
-                            alt='React Bootstrap logo'
+                            alt='WolverineRank logo'
                         />
                     </Navbar.Brand>
                     <MediaQuery minDeviceWidth={992}>
-                        <Form className='position-relative' inline>
+                        <Form className='position-relative w-50' inline>
                             <FormControl type='text' placeholder='Search for a class' className='w-100' onChange={this.requestSearchResults}/>
                             {this.drawSearchResults()}
                         </Form>
@@ -93,11 +101,13 @@ class SearchBar extends React.Component {
             );
     }
 }
+
 const mapStateToProps = state => ({
     results: (state.searchReducers.getSearchResults.results) || [] 
 })
 
 const mapDispatchToProps = dispatch => ({
     getSearchResults: query => dispatch(SearchActions.getSearchResultsRequest(query))
-})    
+})
+
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

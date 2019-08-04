@@ -5,7 +5,7 @@ import { pathSegments } from '../constants/endpoints';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { SearchActions } from '../actions/search_actions'
 import Url from '../utilities/url.js';
-import mockClasses from '../utilities/mock.js';
+import mockCourses from '../utilities/mock.js';
 
 
 function* getSearchResults(action) {  
@@ -14,7 +14,7 @@ function* getSearchResults(action) {
     }
     else {
         const url = new Url().path(pathSegments.COURSE).path(pathSegments.SEARCH).queryStrings({query: action.query});
-        const { json, error } = { json: mockClasses(), error: null }; // yield call(Get, url); // Object destructuring
+        const { json, error } = { json: mockCourses(), error: null }; // yield call(Get, url); // Object destructuring
         if (error) {
             // Dispatch redux action
             yield put(SearchActions.getSearchResultsFailure(error));
