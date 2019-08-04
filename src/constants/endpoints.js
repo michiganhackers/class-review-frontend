@@ -5,4 +5,5 @@ export const pathSegments = Object.freeze({
     COURSE: 'course',
     PROFESSOR: 'professor',
     NAMES: 'names',
+    SEARCH: 'search'
 })
