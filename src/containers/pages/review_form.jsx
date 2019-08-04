@@ -62,17 +62,17 @@ export default class ReviewForm extends React.Component {
                     <Row>
                         <Col s = {5} md={5} lg={4}>
                             <Row>                               
-                                <Col xs={3} s= {4} md={3} align="left" className = "my-auto mx-auto">Overall</Col>
-                                <Col xs={9} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(3)}</Col>
+                                <Col xs={4} s= {4} md={3} align="left" className = "my-auto mx-auto">Overall</Col>
+                                <Col xs={8} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(3)}</Col>
                             </Row>
                             <Row>
                                 
-                                <Col xs={3} s= {4} md={3} align="left" className = "my-auto mx-auto">Interest</Col>
-                                <Col xs={9} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(4.4)}</Col>					
+                                <Col xs={4} s= {4} md={3} align="left" className = "my-auto mx-auto">Interest</Col>
+                                <Col xs={8} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(4.4)}</Col>					
                             </Row>
                             <Row>     
-                                <Col xs={3} s= {4} md={3} align="left" className = "my-auto mx-auto">Difficulty</Col>
-                                <Col xs={9} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(4.8)}</Col>					
+                                <Col xs={4} s= {4} md={3} align="left" className = "my-auto mx-auto">Difficulty</Col>
+                                <Col xs={8} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(4.8)}</Col>					
                             </Row>
                             <Row>
                                 <Col  md={2}></Col>
