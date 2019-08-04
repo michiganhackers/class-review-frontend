@@ -25,13 +25,13 @@ const renderRatingBar = (lab, props) =>{ return(
     )  
 }
 const renderReviews = props =>{
-    var i;
-    for(i = 0; i < props; ++i){
-        return(
-            <ReviewForm></ReviewForm>
-        )    
+    var rows = []
+    for(var i = 0; i < props; i++){
+        rows.push(<ReviewForm/>)    
     }
-    
+    return(
+        <div>{rows}</div>
+    )
 }
 export default class ReviewPage extends React.Component{
     render(){
@@ -51,7 +51,7 @@ export default class ReviewPage extends React.Component{
                     </Col>
                 </Row>
                 <Row>
-                    {renderReviews(5)}
+                    {renderReviews(10)}
                 </Row>
             </Container>
         )
