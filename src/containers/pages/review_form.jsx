@@ -5,7 +5,6 @@ import defaultPicture from '../icons/default_profile_picture.png';
 //import ReadMoreReact from 'read-more-react';
 import ReadMoreAndLess from 'react-read-more-less';
 import {MdThumbUp, MdThumbDown} from "react-icons/md";
-import { number } from 'prop-types';
 import './review_form.css';
 
 const renderRatingBar = props => (
@@ -54,32 +53,32 @@ export default class ReviewForm extends React.Component {
             <Container>
                 <div className = "border border-secondary m-3 py-3 px-5 rounded-lg bg-light">
                     <Row>
-                        <Col className = "my-auto">{renderSemester("Fall 2020")}</Col>
-                        <Col className = "my-auto">{renderProfessor("Dr. Yeet")}</Col>
-                        <Col className = "my-auto">{renderDate("7/12")}</Col>
+                        <Col className="my-auto">{renderSemester("Fall 2020")}</Col>
+                        <Col className="my-auto">{renderProfessor("Dr. Yeet")}</Col>
+                        <Col className="my-auto">{renderDate("7/12")}</Col>
                         <Col xs={3} md={1} className = "my-auto">{renderPicture(false)}</Col>
                     </Row>
                     <Row>
-                        <Col s = {5} md={5} lg={4}>
+                        <Col s={5} md={5} lg={4}>
                             <Row>                               
-                                <Col xs={4} s= {4} md={3} align="left" className = "my-auto mx-auto">Overall</Col>
-                                <Col xs={8} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(3)}</Col>
+                                <Col xs={4} s={4} md={3} align="left" className="my-auto mx-auto">Overall</Col>
+                                <Col xs={8} s={8} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(3)}</Col>
                             </Row>
                             <Row>
                                 
-                                <Col xs={4} s= {4} md={3} align="left" className = "my-auto mx-auto">Interest</Col>
-                                <Col xs={8} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(4.4)}</Col>					
+                                <Col xs={4} s={4} md={3} align="left" className="my-auto mx-auto">Interest</Col>
+                                <Col xs={8} s={8} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.4)}</Col>					
                             </Row>
                             <Row>     
-                                <Col xs={4} s= {4} md={3} align="left" className = "my-auto mx-auto">Difficulty</Col>
-                                <Col xs={8} s= {8} md={9} align="left" className = "my-auto mx-auto">{renderRatingBar(4.8)}</Col>					
+                                <Col xs={4} s={4} md={3} align="left" className="my-auto mx-auto">Difficulty</Col>
+                                <Col xs={8} s={8} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.8)}</Col>					
                             </Row>
                             <Row>
                                 <Col  md={2}></Col>
-                                <Col xs = "auto" md="auto" align = "right">{renderThumbs(14, 1)}</Col> 
+                                <Col xs="auto" md="auto" align="right">{renderThumbs(14, 1)}</Col> 
                             </Row>
                         </Col>   
-                            <Col s = {7} md={7} lg={8} className="border rounded-lg px-2 py-4 mt-2 colored-textbox">
+                            <Col s={7} md={7} lg={8} className="border rounded-lg px-2 py-4 mt-2 colored-textbox">
                             {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works. blah blah blah blah balh balhb ajdkas ajsdklsajdkl aksdjsakl askdjsakl dsajkdj dsakjdlk yeet why is this not working pls work yeet yeet yeet yeet yeet ")}     
                         </Col>
                     </Row>
