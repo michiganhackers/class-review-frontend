@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers/reducers.js';
 import rootSaga from './sagas/sagas.js';
 import { Provider } from 'react-redux';
+
 import './App.css';
 
 // Initialize redux store
@@ -17,7 +18,7 @@ sagaMiddleware.run(rootSaga);
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className="App">
                 <Provider store={store}>
                     <RouterGroup />
                 </Provider>
