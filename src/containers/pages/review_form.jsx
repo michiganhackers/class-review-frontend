@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Bootstrap, Grid, Row, Col, Container, ProgressBar, Image} from 'react-bootstrap';
+import {Bootstrap, Grid, Row, Col, Container, Button, Image} from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
 import defaultPicture from '../icons/default_profile_picture.png';
 //import ReadMoreReact from 'read-more-react';
@@ -47,6 +47,14 @@ const renderThumbs = (upNumThumbs, downNumThumbs) =>{
     )
 }
 
+//NOT LINKED TO ANYTHING YET
+const renderReportButton=()=>{
+    return(
+        <div className="py-2">
+            <Button variant="danger" className="float-right"> Report </Button>
+        </div>
+    )
+}
 export default class ReviewForm extends React.Component {
     render(){
         return(
@@ -73,6 +81,10 @@ export default class ReviewForm extends React.Component {
                                 <Col xs={9} s={9} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.8)}</Col>					
                             </Row>
                             <Row>
+                                <Col xs={3} s={3} md={3} align="left" className="my-auto mx-auto">Workload</Col>
+                                <Col xs={9} s={9} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.8)}</Col>
+                            </Row>
+                            <Row>
                                 <Col md={2}></Col>
                                 <Col xs="auto" md="auto" align="right">{renderThumbs(14, 1)}</Col> 
                             </Row>
@@ -81,7 +93,11 @@ export default class ReviewForm extends React.Component {
                             {renderTextBox("This is the yeetiest text you will read for a while, so read it and enjoy. I can't believe I have to type so much to get this to work, and this is not formatted the best because I do not know how to do multi-line text in javascript, but all is well and I reaaaaaaaaaally hope this works. blah blah blah blah balh balhb ajdkas ajsdklsajdkl aksdjsakl askdjsakl dsajkdj dsakjdlk yeet why is this not working pls work yeet yeet yeet yeet yeet ")}     
                         </Col>
                     </Row>
-                
+                    <Row>
+                        <Col>
+                            {renderReportButton()}
+                        </Col>
+                    </Row>
                 </div>   
             </Container>
             // <>

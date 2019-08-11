@@ -63,6 +63,7 @@ export default class ReviewPage extends React.Component{
                             <Row>{renderRatingBar("Overall",4.5)}</Row>
                             <Row>{renderRatingBar("Interest",4.9)}</Row>
                             <Row>{renderRatingBar("Difficulty",5)}</Row>
+                            <Row>{renderRatingBar("Workload", 3.0)}</Row>
                         </Col>
                     </Row>
                     <Row>
