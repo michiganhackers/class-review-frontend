@@ -58,6 +58,10 @@ export default class ReviewPage extends React.Component {
                             <Col xs={3} s={3} md={3} align="left" className="my-auto mx-auto">Difficulty</Col>
                             <Col xs={9} s={9} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(4.8)}</Col>
                         </Row>
+                        <Row>
+                        <Col xs={3} s={3} md={3} align="left" className="my-auto mx-auto">Workload</Col>
+                            <Col xs={9} s={9} md={9} align="left" className="my-auto mx-auto">{renderRatingBar(3.0)}</Col>
+                        </Row>
 {/* 
                         <Row>{renderRatingBar("Overall", 4.5)}</Row>
                         <Row>{renderRatingBar("Interest", 4.9)}</Row>
