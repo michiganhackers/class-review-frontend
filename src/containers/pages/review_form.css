@@ -12,7 +12,6 @@
     min-width: 300px;
 }
 
-
 .colored-reviewBox{
     background: #a6a6a6;
     border-color: #a6a6a6;
@@ -25,4 +24,11 @@
 
 .enlargen-text{
     font-size: 20px;
+}
+
+.no-padding-right{
+    padding-right: 0%;
+}
+.no-padding-left{
+    padding-left: 0%;
 }

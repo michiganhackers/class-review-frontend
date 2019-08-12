@@ -64,7 +64,6 @@ export default class ReviewForm extends React.Component {
                         <Col className="my-auto">{renderSemester("Fall 2020")}</Col>
                         <Col className="my-auto">{renderProfessor("Dr. Yeet")}</Col>
                         <Col className="my-auto">{renderDate("7/12")}</Col>
-                        <Col xs={3} md={1} className="my-auto">{renderPicture(false)}</Col>
                     </Row>
                     <Row>
                         <Col s={5} md={5} lg={4}>
